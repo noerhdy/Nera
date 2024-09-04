@@ -1,18 +1,21 @@
 import React from "react";
 import Navbar from "../fragments/Navbar";
-import BannerSwipe from "../fragments/Home/BannerSwipe";
-import ProductSection from "../fragments/Home/ProductSection";
 import Footer from "../fragments/Footer";
+import { Outlet } from "react-router-dom";
 
 export default function MainLayout() {
   return (
-    <main className="bg-zinc-950 relative w-full h-full overflow-hidden ">
+    <main className="bg-zinc-950 relative w-full h-fit overflow-hidden ">
       <Navbar />
-      <div className="  mb-16 ">
-        <BannerSwipe />
-        <ProductSection />
+      <Outlet />
+      <div
+        className=" h-[300px] relative  "
+        style={{ clipPath: "polygon( 0% 0%, 100% 0%, 100% 100%, 0% 100%) " }}
+      >
+        <div className=" fixed h-[300px] w-full bottom-0">
+          <Footer />
+        </div>
       </div>
-      <Footer />
     </main>
   );
 }

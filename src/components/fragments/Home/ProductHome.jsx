@@ -2,7 +2,7 @@ import CardProduct from "@/components/elements/Card/CardProduct";
 import { dataItem } from "@/constants/Index";
 import React from "react";
 
-export default function ProductSection() {
+export default function ProductHome() {
   return (
     <section className="py-4 mx-6">
       <div className="text-center sm:text-start w-full  ">

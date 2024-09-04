@@ -11,7 +11,7 @@ function Footer() {
   return (
     <div className=" p-[1.1rem] h-full flex flex-col items-center justify-center  bg-zinc-900 ">
       <div className=" font-medium flex w-full sm:w-1/2 sm:text-[0.875rem] text-[0.675rem] text-white ">
-        <div className=" w-1/2 flex flex-col [&_span]:border-b-2 [&_span]:py-2 ">
+        <div className=" w-1/2 flex flex-col [&_span]:border-b-2  [&_span]:py-2 ">
           <span className="">
             <NavLink to="/">Home</NavLink>
           </span>
@@ -25,8 +25,8 @@ function Footer() {
             <NavLink to="/cart">Cart</NavLink>
           </span>
         </div>
-        <div className="w-1/2 flex flex-col items-end">
-          <h1 className="text-white text-[2rem] font-bold">NERA</h1>
+        <div className="w-1/2 flex flex-col items-end justify-end">
+          <h1 className="text-white text-[2rem] font-bold">DISSARAY</h1>
           <p>Find us.</p>
           <div className=" flex [&_span]: gap-4 mt-2">
             <span>
