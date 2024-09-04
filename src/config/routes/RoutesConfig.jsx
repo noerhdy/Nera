@@ -11,8 +11,8 @@ const RoutesConfig = () => {
         <Route path="/" element={<MainLayout />}>
           <Route index element={<HomePage />} />
           <Route path="/product" element={<ProductPage />} />
-          <Route path="/order" element={<OrderPage />} />
         </Route>
+        <Route path="/order" element={<OrderPage />} />
       </Routes>
     </Router>
   );

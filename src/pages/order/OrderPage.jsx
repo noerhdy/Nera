@@ -3,10 +3,8 @@ import React from "react";
 
 function OrderPage() {
   return (
-    <div>
-      <div className=" pt-12 ">
-        <OrderSection />
-      </div>
+    <div className="bg-black overflow-hidden">
+      <OrderSection />
     </div>
   );
 }
