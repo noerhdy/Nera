@@ -1,6 +1,6 @@
 import ButtonNav from "../elements/button/ButtonNav";
 import { UserRound } from "lucide-react";
-import ButtonCta from "../elements/button/ButtonCta";
+import ButtonCta from "../elements/button/ButtonNavModal";
 import { NavLink } from "react-router-dom";
 import ModalSearch from "./Modal/ModalSearch";
 import { useState } from "react";
@@ -31,8 +31,14 @@ function Navbar() {
           <ButtonNav linkPage="/product" classname="active-class">
             Product
           </ButtonNav>
-          <ButtonCta onClick={handleOpen}>
-            <Search />
+          <ButtonNav linkPage="/order" classname="active-class">
+            Order
+          </ButtonNav>
+          <ButtonCta
+            onClick={handleOpen}
+            classname="sm:bg-transparent sm:hover:bg-transparent"
+          >
+            <Search size={20} />
           </ButtonCta>
           <ModalSearch isVisible={isVisible} onClose={handleClose} />
           <ButtonNav linkPage="/product" classname="active-class">

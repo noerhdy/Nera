@@ -10,7 +10,7 @@ const ModalSearch = ({ isVisible, onClose }) => {
     <AnimatePresence>
       {isVisible && (
         <motion.div
-          className="fixed inset-0  z-50 flex  justify-center bg-black bg-opacity-80 sm:px-0 px-12"
+          className="fixed inset-0  z-50 flex  justify-center bg-black bg-opacity-80 sm:px-0 px-4"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}

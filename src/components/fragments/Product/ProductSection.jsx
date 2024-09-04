@@ -1,8 +1,9 @@
-import ButtonCta from "@/components/elements/button/ButtonCta";
+import ButtonCta from "@/components/elements/button/ButtonNavModal";
 import CardProduct from "@/components/elements/Card/CardProduct";
 import { dataItem } from "@/constants/Index";
 import React from "react";
 import Sidebar from "./Sidebar";
+import { ChevronDown } from "lucide-react";
 
 export default function ProductSection() {
   return (
@@ -15,10 +16,13 @@ export default function ProductSection() {
         <div className=" w-full relative ">
           <div className="border-b-2 border-zinc-100 mb-4 flex items-center justify-end gap-2">
             <h1 className="text-end sm:inline-block hidden text-nowrap text-white text-[0.875rem]">
-              Sort product by{" "}
+              Sort product by
             </h1>
-            <ButtonCta linkPage="/cart" classname="active-class">
-              sort
+            <ButtonCta linkPage="/cart" classname="px-8 ">
+              <div className="flex items-center justify-around ">
+                <h3>sort</h3>
+                <ChevronDown size={20} />
+              </div>
             </ButtonCta>
             <div className="w-full gap-2 flex justify-between sm:hidden ">
               <ButtonCta
