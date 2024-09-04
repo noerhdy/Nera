@@ -1,21 +1,15 @@
 import { NavLink } from "react-router-dom";
+import { Button } from "@/components/ui/button";
 
 const ButtonNav = ({ children, linkPage, classname }) => {
   return (
-    <NavLink
-      to={linkPage}
-      className={({ isActive }) =>
-        isActive
-          ? `text-white   rounded-xl  bg-zinc-800 ${classname} p-4 `
-          : `text-zinc-400  bg-zinc-800 p-4 rounded-xl ${classname}`
-      }
-    >
-      <button
-        className={`whitespace-nowrap  px-4  text-center lg:text-[1rem] text-[0.825rem] font-semibold  ${classname}  ease-in-out duration-300`}
+    <NavLink to={linkPage}>
+      <Button
+        className={`rounded-xl font-semibold ${classname} sm:bg-transparent bg-zinc-900 ease-in-out duration-200 text-[0.725rem] sm:text-[1rem]`}
         type="submit"
       >
         {children}
-      </button>
+      </Button>
     </NavLink>
   );
 };

@@ -1,16 +1,16 @@
 import { Button } from "@/components/ui/button";
 import { NavLink } from "react-router-dom";
 
-const ButtonCta = ({ children, linkPage, classname }) => {
+const ButtonCta = ({ onClick, children }) => {
   return (
-    <NavLink to={linkPage}>
-      <Button
-        className={`rounded-xl font-semibold ${classname} sm:bg-transparent bg-zinc-900 ease-in-out duration-200 text-[0.725rem] sm:text-[1rem]`}
-        type="submit"
-      >
+    <button
+      className="cursor-pointer group flex items-center"
+      onClick={onClick}
+    >
+      <h3 className="font-medium text-sm group-hover:-translate-y-1 translate-x-0  group-hover:text-red-500 text-zinc-500 ease-in-out duration-500 delay-100">
         {children}
-      </Button>
-    </NavLink>
+      </h3>
+    </button>
   );
 };
 
