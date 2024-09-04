@@ -8,7 +8,7 @@ const CardProduct = ({ images, name, price }) => {
           <img
             src={images}
             alt={name}
-            className="h-fit w-full object-cover transition duration-500 group-hover:scale-105 sm:h-96"
+            className="h-full w-full object-cover transition duration-500 group-hover:scale-105 sm:h-96"
           />
         </div>
 
