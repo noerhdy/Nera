@@ -26,20 +26,22 @@ function Footer() {
           </span>
         </div>
         <div className="w-1/2 flex flex-col items-end justify-end">
-          <h1 className="text-white text-[2rem] font-bold">DISSARAY</h1>
+          <h1 className="text-white sm:text-[2rem] text-[1rem] font-bold">
+            DISSARAY
+          </h1>
           <p>Find us.</p>
           <div className=" flex [&_span]: gap-4 mt-2">
             <span>
-              <Facebook />
+              <Facebook size={20} />
             </span>
             <span>
-              <Twitter />
+              <Twitter size={20} />
             </span>
             <span>
-              <Instagram />
+              <Instagram size={20} />
             </span>
             <span>
-              <Youtube />
+              <Youtube size={20} />
             </span>
           </div>
         </div>

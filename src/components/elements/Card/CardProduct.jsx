@@ -8,13 +8,13 @@ const CardProduct = ({ images, name, price }) => {
           <img
             src={images}
             alt={name}
-            className="h-64 w-full object-cover transition duration-500 group-hover:scale-105 sm:h-96"
+            className="h-fit w-full object-cover transition duration-500 group-hover:scale-105 sm:h-96"
           />
         </div>
 
         <div className="relative text-center sm:text-end p-2">
-          <h3 className="text-lg font-medium text-white">{name}</h3>
-          <p className="text-sm text-white">Rp. {price}.000</p>
+          <h3 className="text-[1rem] font-medium text-white">{name}</h3>
+          <p className="text-[0.725rem] text-white">Rp. {price}.000</p>
         </div>
       </a>
     </>
