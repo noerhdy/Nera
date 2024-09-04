@@ -36,13 +36,14 @@ const BannerSwipe = () => {
           {images.map((image, index) => (
             <SwiperSlide key={index}>
               <div
-                className="relative w-full h-full flex items-center justify-center overflow-hidden bg-center bg-cover bg-fixed"
+                className="relative w-full h-full flex items-center justify-center overflow-hidden bg-center bg-cover"
                 style={{
                   backgroundImage: `url(${image.src})`,
+                  backgroundAttachment: "fixed",
                 }}
               >
-                {/* Optional: Add content on top of the parallax image
-                <h2 className="text-white text-2xl z-10">{image.alt}</h2> */}
+                {/* Optional: Add content on top of the parallax image */}
+                <h2 className="text-white text-2xl z-10">{image.alt}</h2>
               </div>
             </SwiperSlide>
           ))}
