@@ -22,8 +22,8 @@ const images = [
 
 const BannerSwipe = () => {
   return (
-    <div className="w-full h-full mb-2 relative overflow-hidden">
-      <div className="flex justify-center flex-col relative h-full items-center overflow-hidden">
+    <div className="w-full  mb-2 relative overflow-hidden">
+      <div className="flex justify-center flex-col relative  items-center overflow-hidden">
         <Swiper
           modules={[Scrollbar, A11y, Autoplay]}
           slidesPerView={1}
@@ -31,22 +31,29 @@ const BannerSwipe = () => {
           autoplay={{ delay: 3000, disableOnInteraction: false }}
           pagination={{ clickable: true }}
           scrollbar={{ draggable: true }}
-          className="w-full h-full relative overflow-hidden"
+          className="w-full  relative overflow-hidden"
         >
-          {images.map((image, index) => (
-            <SwiperSlide key={index}>
-              <div
-                className="relative w-full h-full flex items-center justify-center overflow-hidden bg-center bg-cover"
-                style={{
-                  backgroundImage: `url(${image.src})`,
-                  backgroundAttachment: "fixed",
-                }}
-              >
-                {/* Optional: Add content on top of the parallax image */}
-                <h2 className="text-white text-2xl z-10">{image.alt}</h2>
-              </div>
-            </SwiperSlide>
-          ))}
+          <Swiper
+            modules={[Scrollbar, A11y, Autoplay]}
+            slidesPerView={1}
+            loop={true}
+            autoplay={{ delay: 3000, disableOnInteraction: false }}
+            pagination={{ clickable: true }}
+            scrollbar={{ draggable: true }}
+            className="w-full  relative overflow-hidden"
+          >
+            {images.map((image, index) => (
+              <SwiperSlide key={index}>
+                <div className="relative w-full  flex items-center justify-center overflow-hidden">
+                  <img
+                    className=" bg-center object-cover aspect-video "
+                    src={image.src}
+                    alt={image.alt}
+                  />
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
         </Swiper>
       </div>
     </div>
