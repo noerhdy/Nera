@@ -31,13 +31,13 @@ const BannerSwipe = () => {
           autoplay={{ delay: 3000, disableOnInteraction: false }}
           pagination={{ clickable: true }}
           scrollbar={{ draggable: true }}
-          className="w-full h-full relative overflow-hidden"
+          className="box-border size-full relative overflow-hidden"
         >
           {images.map((image, index) => (
             <SwiperSlide key={index}>
               <div className="relative w-full h-full flex items-center justify-center overflow-hidden">
                 <img
-                  className="w-full h-full object-cover object-center bg-center"
+                  className="box-border size-full object-cover object-center bg-center"
                   src={image.src}
                   alt={image.alt}
                 />
