@@ -25,7 +25,7 @@ const BannerSwipe = () => {
     <div className="w-full h-full mb-2 relative overflow-hidden">
       <div className="flex justify-center flex-col relative h-full items-center overflow-hidden">
         <Swiper
-          modules={[, A11y, Autoplay]}
+          modules={[Scrollbar, A11y, Autoplay]}
           slidesPerView={1}
           loop={true}
           autoplay={{ delay: 3000, disableOnInteraction: false }}
