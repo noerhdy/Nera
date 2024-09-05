@@ -14,18 +14,15 @@ const ModalOrder = ({ isVisible, onClose }) => {
           exit={{ y: 100 }}
           transition={{ duration: 1, ease: "easeInOut" }}
         >
-          <button
-            className="ml-2 text-[2rem] text-zinc-500 hover:text-red-500 transition duration-200 ease-in-out"
-            onClick={onClose}
-          >
-            <X />
-          </button>
           <div className=" flex justify-center">
             <div className="sm:w-1/2 w-full py-2 px-4 ">
-              <div className="flex flex-col items-center rounded-[1rem] bg-black py-2 px-4 ">
+              <button
+                className="flex flex-col  w-full items-center rounded-[1rem] bg-black py-2 px-4 "
+                onClick={onClose}
+              >
                 <span className="rounded-full relative sm:hidden h-2 w-1/4 bg-zinc-900 "></span>
                 <div className="flex justify-between w-full">
-                  <div className="flex flex-col font-semibold text-[0.875rem] text-white">
+                  <div className="flex flex-col items-start font-semibold text-[0.875rem] text-white">
                     <h1>2 Item in My Cart</h1>
                     <h1>Rp.200.000</h1>
                   </div>
@@ -38,7 +35,7 @@ const ModalOrder = ({ isVisible, onClose }) => {
                     <ShoppingCart />
                   </div>
                 </div>
-              </div>
+              </button>
             </div>
           </div>
         </motion.div>

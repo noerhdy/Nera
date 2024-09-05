@@ -25,7 +25,7 @@ const BannerSwipe = () => {
     <div className="w-full h-full mb-2 relative overflow-hidden">
       <div className="flex justify-center flex-col relative h-full items-center overflow-hidden">
         <Swiper
-          modules={[Scrollbar, A11y, Autoplay]}
+          modules={[, A11y, Autoplay]}
           slidesPerView={1}
           loop={true}
           autoplay={{ delay: 3000, disableOnInteraction: false }}
@@ -33,27 +33,17 @@ const BannerSwipe = () => {
           scrollbar={{ draggable: true }}
           className="w-full h-full relative overflow-hidden"
         >
-          <Swiper
-            modules={[Scrollbar, A11y, Autoplay]}
-            slidesPerView={1}
-            loop={true}
-            autoplay={{ delay: 3000, disableOnInteraction: false }}
-            pagination={{ clickable: true }}
-            scrollbar={{ draggable: true }}
-            className="w-full h-full relative rounded-[1.5rem] overflow-hidden"
-          >
-            {images.map((image, index) => (
-              <SwiperSlide key={index}>
-                <div className="relative w-full h-full flex items-center justify-center overflow-hidden">
-                  <img
-                    className="w-full h-full  bg-center object-cover "
-                    src={image.src}
-                    alt={image.alt}
-                  />
-                </div>
-              </SwiperSlide>
-            ))}
-          </Swiper>
+          {images.map((image, index) => (
+            <SwiperSlide key={index}>
+              <div className="relative w-full h-full flex items-center justify-center overflow-hidden">
+                <img
+                  className="w-full h-full object-cover object-center bg-center"
+                  src={image.src}
+                  alt={image.alt}
+                />
+              </div>
+            </SwiperSlide>
+          ))}
         </Swiper>
       </div>
     </div>

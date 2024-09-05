@@ -25,13 +25,13 @@ const Navbar = ({ onOpenSearch, onOpenOrder }) => {
             Order
           </ButtonNav>
           <ButtonCta
-            onClick={onOpenSearch}
+            onClick={onOpenOrder}
             classname="sm:bg-transparent sm:hover:bg-transparent"
           >
-            <Search size={20} />
+            cart
           </ButtonCta>
           <ButtonCta
-            onClick={onOpenOrder}
+            onClick={onOpenSearch}
             classname="sm:bg-transparent sm:hover:bg-transparent"
           >
             <Search size={20} />

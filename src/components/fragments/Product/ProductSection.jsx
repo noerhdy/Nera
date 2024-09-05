@@ -7,7 +7,7 @@ import { ChevronDown } from "lucide-react";
 
 export default function ProductSection() {
   return (
-    <div className="grid grid-cols-5 mt-12 mx-6 gap-2">
+    <div className="grid grid-cols-5 mt-12 mx-6 gap-2 ">
       <div className="col-span-1 sm:block hidden size-30 bg-zinc-500">
         {" "}
         <Sidebar />
