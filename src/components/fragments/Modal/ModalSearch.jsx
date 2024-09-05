@@ -1,11 +1,13 @@
 import InputForm from "@/components/elements/input";
 import Input from "@/components/elements/input/InputIndex";
 import { Button } from "@/components/ui/button";
+import useMediaQuery from "@/hooks/useMediaQuery";
 import { motion, AnimatePresence } from "framer-motion";
 import { Search } from "lucide-react";
 import { X } from "lucide-react";
 
 const ModalSearch = ({ isVisible, onClose }) => {
+  const isMobile = useMediaQuery(640);
   return (
     <AnimatePresence>
       {isVisible && (
