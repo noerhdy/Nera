@@ -1,4 +1,3 @@
-import BannerSwipe from "@/components/fragments/Home/BannerSwipe";
 import ProductSection from "@/components/fragments/Product/ProductSection";
 import React from "react";
 

@@ -1,8 +1,6 @@
-import { Button } from "@/components/ui/button";
 import React from "react";
 import OrderItem from "./cart/OrderItem";
 import ButtonNav from "@/components/elements/button/ButtonNav";
-import { ChevronUp } from "lucide-react";
 import SideCheck from "./cart/SideCheck";
 
 function OrderSection() {

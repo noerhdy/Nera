@@ -6,17 +6,7 @@ import ModalSearch from "./Modal/ModalSearch";
 import { useState } from "react";
 import { Search } from "lucide-react";
 
-function Navbar() {
-  const [isVisible, setIsVisible] = useState(false);
-
-  const handleOpen = () => {
-    setIsVisible(true);
-  };
-
-  const handleClose = () => {
-    setIsVisible(false);
-  };
-
+const Navbar = ({ onOpenSearch, onOpenOrder }) => {
   return (
     <nav className="fixed left-0 right-0 top-0 bg-black py-2 border w-full border-zinc-100/10 z-50">
       <div className="flex justify-between items-center px-4 lg:px-12">
@@ -35,12 +25,17 @@ function Navbar() {
             Order
           </ButtonNav>
           <ButtonCta
-            onClick={handleOpen}
+            onClick={onOpenSearch}
             classname="sm:bg-transparent sm:hover:bg-transparent"
           >
             <Search size={20} />
           </ButtonCta>
-          <ModalSearch isVisible={isVisible} onClose={handleClose} />
+          <ButtonCta
+            onClick={onOpenOrder}
+            classname="sm:bg-transparent sm:hover:bg-transparent"
+          >
+            <Search size={20} />
+          </ButtonCta>
           <ButtonNav linkPage="/product" classname="active-class">
             <UserRound size={20} />
           </ButtonNav>
@@ -48,6 +43,6 @@ function Navbar() {
       </div>
     </nav>
   );
-}
+};
 
 export default Navbar;
