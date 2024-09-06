@@ -8,6 +8,7 @@ import { useState } from "react";
 export default function MainLayout() {
   const [isSearchVisible, setIsSearchVisible] = useState(false);
   const [isOrderVisible, setIsOrderVisible] = useState(false);
+  const [isFilterVisible, setIsFilterVisible] = useState(false);
 
   const handleOpenSearch = () => {
     setIsSearchVisible(true);
@@ -15,12 +16,18 @@ export default function MainLayout() {
   const handleOpenOrder = () => {
     setIsOrderVisible(true);
   };
+  const handleOpenFilter = () => {
+    setIsFilterVisible(true);
+  };
   const handleCloseSearch = () => {
     setIsSearchVisible(false);
   };
 
   const handleCloseOrder = () => {
     setIsOrderVisible(false);
+  };
+  const handleCloseFilter = () => {
+    setIsFilterVisible(false);
   };
 
   return (
@@ -31,8 +38,10 @@ export default function MainLayout() {
         handleCloseSearch={handleCloseSearch}
         isOrderVisible={isOrderVisible}
         handleCloseOrder={handleCloseOrder}
+        isFilterVisible={isFilterVisible}
+        handleCloseFilter={handleCloseFilter}
       />
-      <Outlet />
+      <Outlet context={{ handleOpenFilter }} />
       <div
         className=" h-[300px] relative  "
         style={{ clipPath: "polygon( 0% 0%, 100% 0%, 100% 100%, 0% 100%) " }}
