@@ -3,11 +3,16 @@ import React from "react";
 import { useOutletContext } from "react-router-dom";
 
 export default function ProductPage() {
-  const { handleOpenFilter } = useOutletContext();
+  const { handleOpenSort, handleOpenSearch, handleOpenFilter } =
+    useOutletContext();
   return (
     <div>
-      <div className="mb-16 pt-12 ">
-        <ProductSection onOpenFilter={handleOpenFilter} />
+      <div className="pt-12 mb-16 ">
+        <ProductSection
+          onOpenSort={handleOpenSort}
+          onOpenSearch={handleOpenSearch}
+          onOpenFilter={handleOpenFilter}
+        />
       </div>
     </div>
   );

@@ -1,47 +1,63 @@
-import React from "react";
+import React, { useState } from "react";
 import Navbar from "../fragments/Navbar";
 import Footer from "../fragments/Footer";
 import { Outlet } from "react-router-dom";
 import ModalComponent from "../fragments/ModalComponent";
-import { useState } from "react";
 
 export default function MainLayout() {
+  // State untuk setiap modal
   const [isSearchVisible, setIsSearchVisible] = useState(false);
   const [isOrderVisible, setIsOrderVisible] = useState(false);
   const [isFilterVisible, setIsFilterVisible] = useState(false);
+  const [isSortVisible, setIsSortVisible] = useState(false);
 
-  const handleOpenSearch = () => {
-    setIsSearchVisible(true);
-  };
-  const handleOpenOrder = () => {
-    setIsOrderVisible(true);
-  };
-  const handleOpenFilter = () => {
-    setIsFilterVisible(true);
-  };
-  const handleCloseSearch = () => {
+  // Fungsi pembuka modal
+  const handleOpenModal = (modal) => {
+    // Tutup semua modal sebelum membuka modal baru
     setIsSearchVisible(false);
+    setIsOrderVisible(false);
+    setIsFilterVisible(false);
+    setIsSortVisible(false);
+
+    // Buka modal sesuai parameter
+    if (modal === "search") setIsSearchVisible(true);
+    if (modal === "order") setIsOrderVisible(true);
+    if (modal === "filter") setIsFilterVisible(true);
+    if (modal === "sort") setIsSortVisible(true);
   };
 
-  const handleCloseOrder = () => {
+  // Fungsi penutup modal
+  const handleCloseModal = () => {
+    setIsSearchVisible(false);
     setIsOrderVisible(false);
-  };
-  const handleCloseFilter = () => {
     setIsFilterVisible(false);
+    setIsSortVisible(false);
   };
 
   return (
-    <main className="bg-zinc-950 relative w-full h-fit overflow-hidden ">
-      <Navbar onOpenSearch={handleOpenSearch} onOpenOrder={handleOpenOrder} />
+    <main className="relative w-full overflow-hidden bg-zinc-950 h-fit ">
+      <Navbar
+        onOpenSearch={() => handleOpenModal("search")}
+        onOpenOrder={() => handleOpenModal("order")}
+      />
+
       <ModalComponent
         isSearchVisible={isSearchVisible}
-        handleCloseSearch={handleCloseSearch}
         isOrderVisible={isOrderVisible}
-        handleCloseOrder={handleCloseOrder}
         isFilterVisible={isFilterVisible}
-        handleCloseFilter={handleCloseFilter}
+        isSortVisible={isSortVisible}
+        onCloseModal={handleCloseModal}
+        onOpenSearch={() => handleOpenModal("search")} // Tambahkan ini untuk memicu dari ModalFilter
       />
-      <Outlet context={{ handleOpenFilter }} />
+
+      <Outlet
+        context={{
+          handleOpenSort: () => handleOpenModal("sort"),
+          handleOpenSearch: () => handleOpenModal("search"),
+          handleOpenFilter: () => handleOpenModal("filter"),
+        }}
+      />
+
       <div
         className=" h-[300px] relative  "
         style={{ clipPath: "polygon( 0% 0%, 100% 0%, 100% 100%, 0% 100%) " }}

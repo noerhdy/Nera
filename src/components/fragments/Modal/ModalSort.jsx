@@ -1,32 +1,8 @@
+import FilterProduct from "@/components/elements/filter/FilterProduct";
 import { motion, AnimatePresence } from "framer-motion";
-import Sidebar from "../Product/Sidebar";
 import { X } from "lucide-react";
-import { useEffect } from "react";
-import { useState } from "react";
 
-const ModalFilter = ({ isVisible, onClose, onOpenSearch }) => {
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    // Function to check screen size
-    const handleResize = () => {
-      setIsMobile(window.innerWidth < 640);
-    };
-
-    // Initial check
-    handleResize();
-
-    // Add event listener
-    window.addEventListener("resize", handleResize);
-
-    // Cleanup event listener on unmount
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
-
-  // Only render ModalCheck if it's mobile size
-  if (!isMobile) return null;
+const ModalSort = ({ isVisible, onClose }) => {
   return (
     <AnimatePresence>
       {isVisible && (
@@ -48,7 +24,22 @@ const ModalFilter = ({ isVisible, onClose, onOpenSearch }) => {
           >
             <div className="flex flex-col items-end justify-end h-full sm:items-center sm:justify-center">
               <div className="w-full px-4 sm:w-2/5 ">
-                <Sidebar onClose={onClose} onOpenSearch={onOpenSearch} />
+                <div className="flex flex-col  w-full items-center sm:rounded-[1rem] rounded-none  rounded-t-[1rem] shadow-xl bg-zinc-950 py-2 px-4 ">
+                  <div className="flex justify-between w-full gap-2 py-2 ">
+                    <h1 className="text-white text-[1rem] font-semibold">
+                      Sort Producy By.
+                    </h1>
+                    <button
+                      className="duration-200 ease-in-out text-zinc-400 hover:text-red-500"
+                      onClick={onClose}
+                    >
+                      <X size={18} />
+                    </button>
+                  </div>
+                  <div className="flex flex-col w-full py-4">
+                    <FilterProduct />
+                  </div>
+                </div>
               </div>
             </div>
           </motion.div>
@@ -58,4 +49,4 @@ const ModalFilter = ({ isVisible, onClose, onOpenSearch }) => {
   );
 };
 
-export default ModalFilter;
+export default ModalSort;

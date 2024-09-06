@@ -5,42 +5,42 @@ import React from "react";
 import Sidebar from "./Sidebar";
 import { ChevronDown } from "lucide-react";
 
-export default function ProductSection({ onOpenFilter }) {
+export default function ProductSection({
+  onOpenSort,
+  onOpenSearch,
+  onOpenFilter,
+}) {
   return (
-    <div className="grid grid-cols-5 mt-12 mx-6 gap-2 ">
-      <div className="col-span-1 sm:block hidden size-30 bg-zinc-500">
+    <div className="grid grid-cols-5 gap-2 mx-6 mt-12 ">
+      <div className="hidden col-span-1 sm:block size-30 bg-zinc-500">
         {" "}
-        <Sidebar />
+        <Sidebar onOpenSearch={onOpenSearch} />
       </div>
       <div className="col-span-5 sm:col-span-4">
-        <div className=" w-full relative ">
-          <div className="border-b-2 border-zinc-100 mb-4 flex items-center justify-end gap-2">
+        <div className="relative w-full ">
+          <div className="flex items-center justify-center gap-2 pb-2 mb-4 border-b-2 sm:justify-end border-zinc-100">
             <h1 className="text-end sm:inline-block hidden text-nowrap text-white text-[0.875rem]">
               Sort product by
             </h1>
-            <ButtonCta onClick={onOpenFilter} classname="px-4 ">
-              <div className="flex items-center justify-between gap-2">
-                <h3 className="text-[1rem]">sort</h3>
-                <ChevronDown size={16} />
-              </div>
-            </ButtonCta>
-            <div className="w-full gap-2 flex justify-between sm:hidden ">
-              {/* <ButtonCta
-                linkPage="/cart"
-                classname="active-class sm:hidden block"
-              >
-                filter
-              </ButtonCta>
-              <ButtonCta
-                linkPage="/cart"
-                classname="sm:hidden block active-class"
-              >
-                sort
-              </ButtonCta> */}
-            </div>
+            {/* filter */}
+            <button
+              onClick={onOpenFilter}
+              className="flex items-center justify-center w-full px-2 py-2 text-sm font-semibold transition duration-200 ease-in-out border sm:w-auto border-zinc-700 rounded-xl bg-zinc-950 text-zinc-700 hover:bg-zinc-800 "
+            >
+              Filter
+              <ChevronDown size={16} />
+            </button>
+            {/* Sort */}
+            <button
+              onClick={onOpenSort}
+              className="flex items-center justify-center w-full px-2 py-2 text-sm font-semibold transition duration-200 ease-in-out border border-zinc-700 rounded-xl bg-zinc-950 text-zinc-700 hover:bg-zinc-800 sm:w-auto"
+            >
+              Sort
+              <ChevronDown size={16} />
+            </button>
           </div>
         </div>
-        <div className="grid grid-cols-2 gap-2 lg:grid-cols-4 lg:gap-2 overflow-hidden ">
+        <div className="grid grid-cols-2 gap-2 overflow-hidden lg:grid-cols-4 lg:gap-2 ">
           {dataItem.map((item, index) => (
             <div key={index} className="">
               <CardProduct
