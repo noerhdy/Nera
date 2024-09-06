@@ -1,4 +1,4 @@
-import FilterProduct from "@/components/elements/FilterProduct";
+import FilterProduct from "@/components/elements/filter/FilterProduct";
 import { motion, AnimatePresence } from "framer-motion";
 import { X } from "lucide-react";
 

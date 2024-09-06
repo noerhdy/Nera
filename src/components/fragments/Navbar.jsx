@@ -8,8 +8,8 @@ import { Search } from "lucide-react";
 
 const Navbar = ({ onOpenSearch, onOpenOrder }) => {
   return (
-    <nav className="fixed left-0 right-0 top-0 bg-black py-2 border w-full border-zinc-100/10 z-50">
-      <div className="flex justify-between items-center px-4 lg:px-12">
+    <nav className="fixed top-0 left-0 right-0 z-50 w-full py-2 border bg-black/0 border-zinc-100/10">
+      <div className="flex items-center justify-between px-4 lg:px-12">
         <div>
           <NavLink to="/">
             <h1 className="text-white sm:text-[2rem] text-[0.875rem] font-bold">
@@ -17,7 +17,7 @@ const Navbar = ({ onOpenSearch, onOpenOrder }) => {
             </h1>
           </NavLink>
         </div>
-        <div className="gap-2 flex justify-center items-center">
+        <div className="flex items-center justify-center gap-2">
           <ButtonNav linkPage="/product" classname="active-class">
             Product
           </ButtonNav>
