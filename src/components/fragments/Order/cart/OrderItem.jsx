@@ -7,19 +7,19 @@ import React from "react";
 function OrderItem() {
   return (
     <>
-      <section className="my-2 border-y-2 border-zinc-600">
-        <div className="w-full gap-2    flex  ">
+      <section className="my-2 border-y-2 border-[#A9A69F]">
+        <div className="flex w-full gap-2 ">
           {/* Gambar Produk */}
-          <div className="relative size-24 flex-shrink-0">
+          <div className="relative flex-shrink-0 size-24">
             <img
-              className="w-full h-auto aspect-square object-cover bg-center"
+              className="object-cover w-full h-auto bg-center aspect-square"
               src="./skuligan.jpg" // Mengambil gambar pertama dari array images
               alt="Product Image"
             />
           </div>
 
           {/* Detail Produk */}
-          <div className="w-full flex justify-between text-wrap ">
+          <div className="flex justify-between w-full text-wrap ">
             {/* Bagian Kiri - Nama Produk dan Harga */}
             <div className="flex flex-col justify-between ">
               <div className="flex flex-col">
@@ -37,10 +37,10 @@ function OrderItem() {
             </div>
 
             {/* Bagian Kanan - Kontrol Kuantitas dan Tombol Hapus */}
-            <div className="flex  flex-col justify-between   items-end  ">
+            <div className="flex flex-col items-end justify-between ">
               <button
                 type="button"
-                className=" text-red-900  p-2"
+                className="p-2 text-red-900 "
                 //   onClick={handleRemove}
               >
                 <Trash2 size={16} />
@@ -49,8 +49,8 @@ function OrderItem() {
           </div>
         </div>
 
-        <div className=" border-t-2  border-zinc-700 items-center flex justify-between ">
-          <div className="flex items-center gap-4 justify-between w-1/4   ">
+        <div className="flex items-center justify-between border-t-2 border-[#A9A69F]">
+          <div className="flex items-center justify-between w-1/4 gap-4 ">
             <button
               type="button"
               aria-label="Decrease quantity"

@@ -51,14 +51,14 @@ const ModalCheck = ({ isVisible, onClose }) => {
             exit={{ y: 800 }}
             transition={{ duration: 1, ease: "easeInOut" }}
           >
-            <div className="bottom-0 absolute w-full">
-              <div className="w-full flex flex-col rounded-t-xl px-4 py-4 overflow-hidden bg-zinc-950">
-                <div className="border-b-2 py-2 border-zinc-600">
+            <div className="absolute bottom-0 w-full">
+              <div className="flex flex-col w-full px-4 py-4 overflow-hidden rounded-t-xl bg-zinc-950">
+                <div className="py-2 border-b-2 border-zinc-600">
                   <h1 className="font-semibold text-[1rem]">
                     Checkout Summary
                   </h1>
                 </div>
-                <div className="flex items-center w-full justify-between">
+                <div className="flex items-center justify-between w-full">
                   <h1 className="font-medium text-[1rem]">
                     Original Product Price
                   </h1>
@@ -71,13 +71,13 @@ const ModalCheck = ({ isVisible, onClose }) => {
                   <h1>Product Discount</h1>
                   <h1>-Rp.200.000</h1>
                 </div>
-                <div className="flex sm:pt-0 pt-4 items-center w-full justify-between">
+                <div className="flex items-center justify-between w-full pt-4 sm:pt-0">
                   <h1 className="font-medium text-[1rem]">
                     Total Product Price
                   </h1>
                   <h1 className="font-semibold text-[1.2rem]">Rp. 2.000.000</h1>
                 </div>
-                <div className="sm:py-8 py-4">
+                <div className="py-4 sm:py-8">
                   <Link to="/">
                     <Button className="rounded-xl text-[1rem] w-full">
                       Check Out

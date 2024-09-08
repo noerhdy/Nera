@@ -11,10 +11,10 @@ const CardProduct = ({ images, name, price }) => {
           ></img>
         </div>
         <div className="relative p-2 text-center sm:text-end">
-          <h3 className="text-[0.75rem] sm:text-[1rem] font-medium text-white">
+          <h3 className="text-[0.75rem] sm:text-[1rem] font-medium text-[#e5e4e2]">
             {name}
           </h3>
-          <p className="text-[0.75rem] text-white">Rp. {price}.000</p>
+          <p className="text-[0.75rem] text-[#e5e4e2]">Rp. {price}.000</p>
         </div>
       </a>
     </>

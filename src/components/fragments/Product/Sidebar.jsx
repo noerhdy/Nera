@@ -6,7 +6,7 @@ import React from "react";
 function Sidebar({ onOpenSearch, onClose }) {
   return (
     <>
-      <div className="px-4 py-4 space-y-2 bg-zinc-950 sm:px-0 rounded-[1rem] sm:rounded-none ">
+      <div className="px-4 py-4 space-y-2 mt-12 bg-zinc-950 sm:px-0 rounded-[1rem] sm:rounded-none ">
         <div className="relative flex items-end justify-end sm:hidden">
           <button
             className="duration-200 ease-in-out text-zinc-400 hover:text-red-500"

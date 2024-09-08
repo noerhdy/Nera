@@ -36,11 +36,11 @@ function SideCheck() {
     };
   }, []);
   return (
-    <div className=" sm:w-2/5 w-full sm:relative bg-zinc-950  absolute  left-0 right-0 bottom-0  px-4">
-      <div className="sm:flex hidden border-b-2 py-2 border-zinc-600">
+    <div className="absolute bottom-0 left-0 right-0 w-full px-4 rounded-xl sm:w-2/5 sm:relative bg-zinc-950">
+      <div className="hidden py-2 border-b-2 sm:flex border-[#A9A69F">
         <h1 className="font-semibold text-[1rem]">Checkout Summary</h1>
       </div>
-      <div className="sm:flex hidden items-center w-full justify-between ">
+      <div className="items-center justify-between hidden w-full sm:flex ">
         <h1 className="font-medium text-[1rem]">Original Product Price</h1>
         <h1 className="font-semibold text-[1.2rem]">00</h1>
       </div>
@@ -53,18 +53,18 @@ function SideCheck() {
         <h1> -Rp.200.000</h1>
       </div>
       {/* item3 */}
-      <div className="flex sm:pt-0 pt-4  items-center w-full justify-between">
+      <div className="flex items-center justify-between w-full pt-4 sm:pt-0">
         <h1 className="font-medium text-[1rem]">Total Product Price</h1>
         <h1 className="sm:block hidden font-semibold text-[1.2rem]">
           Rp. 2.000.000
         </h1>
-        <div className="flex sm:hidden  items-center gap-2">
+        <div className="flex items-center gap-2 sm:hidden">
           <h1 className="font-semibold text-[1.2rem]">Rp. 2.000.000</h1>
           <ChevronUp onClick={handleOpen} className="animate-pulse" />
         </div>
       </div>
       {/* button */}
-      <div className="sm:py-8 py-4">
+      <div className="py-4 sm:py-8">
         {isMobile ? (
           // If mobile, just show disabled button without Link
           <Button className="rounded-xl text-[1rem] w-full" disabled>

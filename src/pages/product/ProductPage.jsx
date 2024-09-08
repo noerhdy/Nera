@@ -7,7 +7,7 @@ export default function ProductPage() {
     useOutletContext();
   return (
     <div>
-      <div className="pt-12 mb-16 ">
+      <div className="h-screen pt-12 mb-16">
         <ProductSection
           onOpenSort={handleOpenSort}
           onOpenSearch={handleOpenSearch}

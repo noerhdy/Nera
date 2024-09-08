@@ -35,7 +35,7 @@ export default function MainLayout() {
   };
 
   return (
-    <main className="relative w-full overflow-hidden bg-zinc-950 h-fit ">
+    <main className="relative w-full overflow-hidden bg-[#111] h-fit ">
       <Navbar
         onOpenSearch={() => handleOpenModal("search")}
         onOpenOrder={() => handleOpenModal("order")}

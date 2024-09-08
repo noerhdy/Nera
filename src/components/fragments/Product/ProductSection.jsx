@@ -18,24 +18,24 @@ export default function ProductSection({
       </div>
       <div className="col-span-5 sm:col-span-4">
         <div className="relative w-full ">
-          <div className="flex items-center justify-center gap-2 pb-2 mb-4 border-b-2 sm:justify-end border-zinc-100">
+          <div className="flex items-center justify-center gap-2 mb-4 border-b-2 sm:justify-end border-zinc-100">
             <h1 className="text-end sm:inline-block hidden text-nowrap text-white text-[0.875rem]">
               Sort product by
             </h1>
-            {/* filter */}
-            <button
-              onClick={onOpenFilter}
-              className="flex items-center justify-center w-full px-2 py-2 text-sm font-semibold transition duration-200 ease-in-out border sm:w-auto border-zinc-700 rounded-xl bg-zinc-950 text-zinc-700 hover:bg-zinc-800 "
-            >
-              Filter
-              <ChevronDown size={16} />
-            </button>
             {/* Sort */}
             <button
               onClick={onOpenSort}
-              className="flex items-center justify-center w-full px-2 py-2 text-sm font-semibold transition duration-200 ease-in-out border border-zinc-700 rounded-xl bg-zinc-950 text-zinc-700 hover:bg-zinc-800 sm:w-auto"
+              className="flex items-center w-full px-2 py-2 text-sm font-semibold transition duration-200 ease-in-out border border-zinc-700 rounded-xl bg-zinc-950 text-zinc-700 hover:bg-zinc-800 sm:w-auto"
             >
-              Sort
+              Search
+              <ChevronDown size={16} />
+            </button>
+            {/* filter */}
+            <button
+              onClick={onOpenFilter}
+              className="flex items-center w-full px-2 py-2 text-sm font-semibold transition duration-200 ease-in-out border sm:w-auto border-zinc-700 rounded-xl bg-zinc-950 text-zinc-700 hover:bg-zinc-800"
+            >
+              Filter
               <ChevronDown size={16} />
             </button>
           </div>

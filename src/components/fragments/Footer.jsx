@@ -9,9 +9,9 @@ import { NavLink } from "react-router-dom";
 
 function Footer() {
   return (
-    <div className=" p-[1.1rem] h-full flex flex-col items-center justify-center  bg-zinc-900 ">
-      <div className=" font-medium flex w-full sm:w-1/2 sm:text-[0.875rem] text-[0.675rem] text-white ">
-        <div className=" w-1/2 flex flex-col [&_span]:border-b-2  [&_span]:py-2 ">
+    <div className=" p-[1.1rem] h-full flex flex-col items-center justify-center  bg-[#000] ">
+      <div className=" font-medium flex w-full sm:w-1/2 sm:text-[0.875rem] text-[0.675rem] text-[#888888] ">
+        <div className=" w-1/2 flex flex-col [&_span]:border-b-2 [&_span]:border-[#454545] [&_span]:py-2 ">
           <span className="">
             <NavLink to="/">Home</NavLink>
           </span>
@@ -25,8 +25,8 @@ function Footer() {
             <NavLink to="/cart">Cart</NavLink>
           </span>
         </div>
-        <div className="w-1/2 flex flex-col items-end justify-end">
-          <h1 className="text-white sm:text-[2rem] text-[1rem] font-bold">
+        <div className="flex flex-col items-end justify-end w-1/2">
+          <h1 className="text-[#e5e4e2] sm:text-[2rem] text-[1rem] font-bold">
             DISSARAY
           </h1>
           <p>Find us.</p>
@@ -46,7 +46,7 @@ function Footer() {
           </div>
         </div>
       </div>
-      <div className="font-medium flex w-full sm:w-1/2 sm:text-[0.875rem] justify-between text-[0.675rem] text-zinc-700 mt-12">
+      <div className="font-medium flex w-full sm:w-1/2 sm:text-[0.875rem] justify-between text-[0.675rem] text-zinc-600 mt-12">
         <p>© 2024. Company Name. All rights reserved.</p>
         <p>2024 NN</p>
       </div>
