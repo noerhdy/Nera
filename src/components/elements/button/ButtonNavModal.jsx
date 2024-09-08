@@ -7,7 +7,7 @@ const ButtonNavModal = ({ onClick, children, classname }) => {
       type="submit"
       onClick={onClick}
     >
-      <div className="font-medium text-[1rem] group-hover:text-[#e5e4e2] text-[#A9A69F] ease-in-out duration-500 delay-100">
+      <div className="font-medium  group-hover:text-[#e5e4e2] text-[#A9A69F] ease-in-out duration-500 delay-100">
         {children}
       </div>
     </Button>

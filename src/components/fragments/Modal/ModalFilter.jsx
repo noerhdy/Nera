@@ -1,8 +1,6 @@
 import { motion, AnimatePresence } from "framer-motion";
 import Sidebar from "../Product/Sidebar";
-import { X } from "lucide-react";
-import { useEffect } from "react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const ModalFilter = ({ isVisible, onClose, onOpenSearch }) => {
   const [isMobile, setIsMobile] = useState(false);
@@ -25,8 +23,23 @@ const ModalFilter = ({ isVisible, onClose, onOpenSearch }) => {
     };
   }, []);
 
+  useEffect(() => {
+    // Disable scroll when modal is visible
+    if (isVisible) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+
+    // Cleanup to restore scroll when modal is unmounted or visibility changes
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [isVisible]);
+
   // Only render ModalCheck if it's mobile size
   if (!isMobile) return null;
+
   return (
     <AnimatePresence>
       {isVisible && (
@@ -40,14 +53,14 @@ const ModalFilter = ({ isVisible, onClose, onOpenSearch }) => {
           ></motion.div>
 
           <motion.div
-            className="fixed inset-0 top-0 z-40 "
+            className="fixed inset-0 top-0 z-40"
             initial={{ y: 800 }}
             animate={{ y: 0 }}
             exit={{ y: 800 }}
             transition={{ duration: 1, ease: "easeInOut" }}
           >
             <div className="flex flex-col items-end justify-end h-full sm:items-center sm:justify-center">
-              <div className="w-full px-4 sm:w-2/5 ">
+              <div className="w-full px-4 sm:w-2/5">
                 <Sidebar onClose={onClose} onOpenSearch={onOpenSearch} />
               </div>
             </div>

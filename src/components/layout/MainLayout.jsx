@@ -35,7 +35,7 @@ export default function MainLayout() {
   };
 
   return (
-    <main className="relative w-full overflow-hidden bg-[#111] h-fit ">
+    <main className="relative w-full  bg-[#111]  ">
       <Navbar
         onOpenSearch={() => handleOpenModal("search")}
         onOpenOrder={() => handleOpenModal("order")}
@@ -59,7 +59,7 @@ export default function MainLayout() {
       />
 
       <div
-        className=" h-[300px] relative  "
+        className=" h-[300px] relative z-20  "
         style={{ clipPath: "polygon( 0% 0%, 100% 0%, 100% 100%, 0% 100%) " }}
       >
         <div className=" fixed h-[300px] w-full bottom-0">

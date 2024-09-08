@@ -6,14 +6,12 @@ export default function ProductPage() {
   const { handleOpenSort, handleOpenSearch, handleOpenFilter } =
     useOutletContext();
   return (
-    <div>
-      <div className="h-screen pt-12 mb-16">
-        <ProductSection
-          onOpenSort={handleOpenSort}
-          onOpenSearch={handleOpenSearch}
-          onOpenFilter={handleOpenFilter}
-        />
-      </div>
+    <div className="w-full h-full px-4 pt-12 mb-16 sm:px-12">
+      <ProductSection
+        onOpenSort={handleOpenSort}
+        onOpenSearch={handleOpenSearch}
+        onOpenFilter={handleOpenFilter}
+      />
     </div>
   );
 }

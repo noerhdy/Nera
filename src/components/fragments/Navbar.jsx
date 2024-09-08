@@ -5,7 +5,7 @@ import { NavLink } from "react-router-dom";
 
 const Navbar = ({ onOpenSearch, onOpenOrder }) => {
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 w-full py-2 bg-[#111111] border-b-2 border-[#A9A69F]/10 ">
+    <nav className="fixed top-0 left-0 right-0 z-40 w-full py-2 bg-[#111111]  ">
       <div className="flex items-center justify-between px-4 lg:px-12">
         <div>
           <NavLink to="/">
@@ -18,6 +18,7 @@ const Navbar = ({ onOpenSearch, onOpenOrder }) => {
           <ButtonNav linkPage="/product" classname="active-class">
             Product
           </ButtonNav>
+
           <ButtonNav linkPage="/order" classname="active-class">
             Order
           </ButtonNav>
@@ -27,14 +28,15 @@ const Navbar = ({ onOpenSearch, onOpenOrder }) => {
           >
             cart
           </ButtonCta>
+
           <ButtonCta
             onClick={onOpenSearch}
-            classname="sm:bg-transparent sm:hover:bg-transparent"
+            classname="sm:bg-transparent sm:hover:bg-transparent text-[0.75rem] "
           >
-            <Search size={20} />
+            <Search size={16} />
           </ButtonCta>
           <ButtonNav linkPage="eror" classname="active-class">
-            <UserRound size={20} />
+            <UserRound size={16} />
           </ButtonNav>
         </div>
       </div>

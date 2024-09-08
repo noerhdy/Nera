@@ -26,7 +26,7 @@ const ModalOrder = ({ isVisible }) => {
                     </div>
                     <div className="relative font-semibold text-[0.875rem] text-white p-3">
                       <div className="absolute top-0 right-0">
-                        <span className="relative flex items-center justify-center bg-red-500 rounded-full size-5 ">
+                        <span className="relative flex items-center justify-center bg-black rounded-full size-5 ">
                           <span className="text-[0.75rem] ">2</span>
                         </span>
                       </div>
