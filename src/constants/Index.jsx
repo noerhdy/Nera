@@ -4,6 +4,8 @@ import imgProduct3 from "../assets/img/itemProduct/jacketTempur.jpg";
 import imgProduct4 from "../assets/img/itemProduct/matcros.jpg";
 import imgProduct5 from "../assets/img/itemProduct/skuligan.jpg";
 import imgProduct6 from "../assets/img/itemProduct/swag.jpg";
+import imgProduct7 from "../assets/img/itemProduct/nordrav.jpg";
+import imgProduct8 from "../assets/img/itemProduct/germal.jpg";
 
 export const dataItem = [
   {
@@ -53,5 +55,21 @@ export const dataItem = [
     discountPrice: 0,
     images: imgProduct6,
     slug: "Swag-T",
+  },
+  {
+    id: 7,
+    name: "Nordrav",
+    price: 429.0,
+    discountPrice: 0,
+    images: imgProduct7,
+    slug: "Nordrav-H",
+  },
+  {
+    id: 8,
+    name: "Germal",
+    price: 199.0,
+    discountPrice: 0,
+    images: imgProduct8,
+    slug: "Germal-LS",
   },
 ];
