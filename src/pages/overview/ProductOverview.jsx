@@ -4,16 +4,20 @@ import { dataSize } from "@/constants/Index";
 import { Minus, Plus } from "lucide-react";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import imgProduct2 from "@/assets/img/itemProduct/convenire.jpg";
+import imgProduct2_1 from "@/assets/img/itemProduct/convenire-1.jpg";
+import imgProduct2_2 from "@/assets/img/itemProduct/convenire-2.jpg";
+import imgProduct2_3 from "@/assets/img/itemProduct/convenire-3.jpg";
 
 const ProductOverview = () => {
   const [images] = useState({
-    img1: "https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,b_rgb:f5f5f5/3396ee3c-08cc-4ada-baa9-655af12e3120/scarpa-da-running-su-strada-invincible-3-xk5gLh.png",
-    img2: "https://static.nike.com/a/images/f_auto,b_rgb:f5f5f5,w_440/e44d151a-e27a-4f7b-8650-68bc2e8cd37e/scarpa-da-running-su-strada-invincible-3-xk5gLh.png",
-    img3: "https://static.nike.com/a/images/f_auto,b_rgb:f5f5f5,w_440/44fc74b6-0553-4eef-a0cc-db4f815c9450/scarpa-da-running-su-strada-invincible-3-xk5gLh.png",
-    img4: "https://static.nike.com/a/images/f_auto,b_rgb:f5f5f5,w_440/d3eb254d-0901-4158-956a-4610180545e5/scarpa-da-running-su-strada-invincible-3-xk5gLh.png",
+    img1: imgProduct2_3,
+    img2: imgProduct2_1,
+    img3: imgProduct2_2,
+    img4: imgProduct2,
   });
 
-  const [activeImg, setActiveImage] = useState(images.img1);
+  const [activeImg, setActiveImage] = useState(images.img4);
   const [amount, setAmount] = useState(0);
   const [activeTab, setActiveTab] = useState("materials");
   const [selectedSize, setSelectedSize] = useState("");
@@ -28,21 +32,21 @@ const ProductOverview = () => {
 
   return (
     <div className="w-full h-full px-4 pt-24 mb-16 sm:px-12">
-      <div className="flex flex-col size-full gap-6 lg:flex-row ease-in-out transition duration-200">
+      <div className="flex flex-col gap-6 transition duration-200 ease-in-out size-full lg:flex-row">
         {/* Product Images */}
-        <div className="flex flex-col gap-4 lg:w-2/5 ">
+        <div className="flex flex-col gap-4 lg:w-1/2">
           <img
             src={activeImg}
             alt="Active product"
-            className="object-cover max-w-screen-2xl  aspect-square"
+            className="bg-center bg-cover aspect-square"
           />
-          <div className="flex flex-row flex-wrap justify-between w-full gap-2 sm:flex-nowrap">
+          <div className="flex flex-row flex-wrap w-full gap-2 ">
             {Object.values(images).map((img, index) => (
               <img
                 key={index}
                 src={img}
                 alt={`Product ${index + 1}`}
-                className="object-cover size-36 cursor-pointer sm:size-48 lg:size-36 "
+                className="object-cover cursor-pointer size-24 lg:size-28 "
                 onClick={() => setActiveImage(img)}
               />
             ))}
@@ -50,7 +54,7 @@ const ProductOverview = () => {
         </div>
 
         {/* Product Details */}
-        <div className="flex flex-col items-start gap-4 text-white lg:w-3/5 ease-in-out transition duration-200">
+        <div className="flex flex-col items-start gap-4 text-white transition duration-200 ease-in-out lg:w-2/5">
           <div>
             <h1 className="text-[1.5rem]">Anatomize</h1>
             <h1 className="font-semibold text-[1rem]">Rp. 2.000.000</h1>
@@ -90,7 +94,7 @@ const ProductOverview = () => {
           </div>
 
           {/* Quantity Selector and Checkout */}
-          <div className="flex items-center justify-between  w-3/4 gap-4 sm:w-2/5  ">
+          <div className="flex items-center justify-between w-3/4 gap-4 sm:w-2/5 ">
             <div className="flex items-center justify-between w-full gap-4 border py-2 px-2 border-[#A9A69F] ">
               <button
                 type="button"
@@ -116,7 +120,7 @@ const ProductOverview = () => {
           </div>
 
           {/* Tabs Section */}
-          <div className="text-black py-2  ">
+          <div className="py-2 text-black ">
             <ul
               className="flex   flex-wrap sm:flex-row flex-col text-sm font-medium text-start [&_li]:bg-zinc-950"
               role="tablist"
@@ -212,7 +216,7 @@ const ProductOverview = () => {
 
               {activeTab === "sizechart" && (
                 <div
-                  className="bg-gray-50 w-full flex items-center justify-center"
+                  className="flex items-center justify-center w-full bg-gray-50"
                   id="sizechart"
                   role="tabpanel"
                   aria-labelledby="sizechart-tab"
@@ -227,7 +231,7 @@ const ProductOverview = () => {
 
               {activeTab === "sizeguide" && (
                 <div
-                  className=" bg-gray-50 aspect-video p-4  flex flex-col gap-4 justify-center" // Consistent height
+                  className="flex flex-col justify-center gap-4 p-4 bg-gray-50 aspect-video" // Consistent height
                   id="sizeguide"
                   role="tabpanel"
                   aria-labelledby="sizeguide-tab"
@@ -235,7 +239,7 @@ const ProductOverview = () => {
                   <h1 className="w-full text-[1.5rem] uppercase py-2">
                     Size Guide
                   </h1>
-                  <table className="w-full text-left rtl:text-right py-2 text-black table-fixed">
+                  <table className="w-full py-2 text-left text-black table-fixed rtl:text-right">
                     <thead className="uppercase text-[0.75rem]">
                       <tr className="border-b dark:bg-gray-800 [&_th]:size-1/4">
                         <th>Size</th>
