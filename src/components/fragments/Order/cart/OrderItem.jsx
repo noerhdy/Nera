@@ -3,8 +3,10 @@ import { Trash2 } from "lucide-react";
 import { Trash } from "lucide-react";
 import { Plus } from "lucide-react";
 import React from "react";
+import { useState } from "react";
 
 function OrderItem() {
+  const [amount, setAmount] = useState(0);
   return (
     <>
       <section className="my-2 border-y-2 border-[#A9A69F]">
@@ -50,18 +52,20 @@ function OrderItem() {
         </div>
 
         <div className="flex items-center justify-between border-t-2 border-[#A9A69F]">
-          <div className="flex items-center justify-between w-1/4 gap-4 ">
+          <div className="flex items-center justify-between w-1/4 gap-4 border border-zinc-50 ">
             <button
               type="button"
               aria-label="Decrease quantity"
+              onClick={() => setAmount((prev) => prev - 1)}
               //   onClick={handleMinusQuantity}
             >
               <Minus size={16} />
             </button>
-            <span className="font-semibold text-[1rem]">1</span>
+            <span className="font-semibold text-[1rem]">{amount}</span>
             <button
               type="button"
               aria-label="Increase quantity"
+              onClick={() => setAmount((prev) => prev + 1)}
               //   onClick={handlePlusQuantity}
             >
               <Plus size={16} />

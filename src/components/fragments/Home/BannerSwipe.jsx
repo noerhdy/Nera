@@ -5,11 +5,11 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 
-import imageProductBanner1 from "@/assets/img/banner/11.jpg";
-import imageProductBanner2 from "@/assets/img/banner/7.jpg";
-import imageProductBanner3 from "@/assets/img/banner/8.jpg";
-import imageProductBanner4 from "@/assets/img/banner/6.jpg";
-import imageProductBanner5 from "@/assets/img/banner/10.jpg";
+import imageProductBanner1 from "@/assets/img/banner/1.jpg";
+import imageProductBanner2 from "@/assets/img/banner/2.jpg";
+import imageProductBanner3 from "@/assets/img/banner/3.jpg";
+import imageProductBanner4 from "@/assets/img/banner/4.jpg";
+import imageProductBanner5 from "@/assets/img/banner/5.jpg";
 
 // Gabungkan gambar dalam array
 const images = [
@@ -22,8 +22,8 @@ const images = [
 
 const BannerSwipe = () => {
   return (
-    <div className="w-full h-full mb-2 relative overflow-hidden">
-      <div className="flex justify-center flex-col relative h-full items-center overflow-hidden">
+    <div className="relative w-full h-full mb-2 overflow-hidden">
+      <div className="relative flex flex-col items-center justify-center h-full overflow-hidden">
         <Swiper
           modules={[Scrollbar, A11y, Autoplay]}
           slidesPerView={1}
@@ -31,13 +31,13 @@ const BannerSwipe = () => {
           autoplay={{ delay: 3000, disableOnInteraction: false }}
           pagination={{ clickable: true }}
           scrollbar={{ draggable: true }}
-          className="box-border size-full relative overflow-hidden"
+          className="box-border relative overflow-hidden size-full"
         >
           {images.map((image, index) => (
             <SwiperSlide key={index}>
-              <div className="relative w-full h-full flex items-center justify-center overflow-hidden">
+              <div className="relative flex items-center justify-center w-full h-full overflow-hidden">
                 <img
-                  className="box-border size-full object-cover object-center bg-center"
+                  className="box-border object-cover object-center bg-center size-full"
                   src={image.src}
                   alt={image.alt}
                 />

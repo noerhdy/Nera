@@ -73,3 +73,24 @@ export const dataItem = [
     slug: "Germal-LS",
   },
 ];
+
+export const dataSize = [
+  {
+    id: 1,
+    size: "M",
+    height: "160cm - 164cm",
+    weight: "55Kg - 60Kg",
+  },
+  {
+    id: 2,
+    size: "L",
+    height: "170cm - 175cm",
+    weight: "60Kg - 64Kg",
+  },
+  {
+    id: 3,
+    size: "XL",
+    height: "160cm - 164cm",
+    weight: "60Kg - 64Kg",
+  },
+];
