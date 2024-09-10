@@ -1,9 +1,12 @@
 import { RoutesConfig } from "@/config/Index";
+import { ModalProvider } from "@/features/modals/ModalContext";
 
 function App() {
   return (
     <>
-      <RoutesConfig />
+      <ModalProvider>
+        <RoutesConfig />
+      </ModalProvider>
     </>
   );
 }

@@ -1,6 +1,6 @@
+import React from "react";
 import CardProduct from "@/components/elements/Card/CardProduct";
 import { dataItem } from "@/constants/Index";
-import React from "react";
 import Sidebar from "./Sidebar";
 import { ChevronDown } from "lucide-react";
 
@@ -14,13 +14,13 @@ export default function ProductSection({
       <div className="flex flex-col w-full h-full gap-4 lg:flex-row ">
         {/* Sidebar */}
         <div className="hidden w-full h-full sm:block sm:sticky sm:top-[4rem] sm:w-1/5 ">
-          <Sidebar onOpenSearch={onOpenSearch} />
+          <Sidebar onClick={onOpenSearch} />
         </div>
 
         {/* Product Section */}
         <div className="relative w-full py-2 sm:w-4/5">
           {/* Sort and Filter Buttons */}
-          <div className="sticky top-[3rem] py-4 bg-[#111111] z-10 flex items-center justify-center gap-2  mb-4 border-b-2 sm:justify-end border-[#A9A69F]/50">
+          <div className="sticky top-[3rem] py-4 bg-[#111111] z-10 flex items-center justify-center gap-2 mb-4 border-b-2 sm:justify-end border-[#A9A69F]/50">
             <h1 className="hidden text-end sm:inline-block text-[#A9A69F] text-[0.75rem] whitespace-nowrap">
               Sort product by
             </h1>
