@@ -12,7 +12,7 @@ const CheckItem = ({ onOpenSearch }) => {
     <div className="flex flex-col gap-2 p-4 ">
       <button
         onClick={onOpenSearch}
-        className="flex items-center px-2 py-2 text-sm font-semibold transition duration-200 ease-in-out border border-zinc-700 rounded-xl bg-zinc-950 text-[#A9A69F] hover:bg-zinc-900"
+        className="flex gap-2 items-center px-2 py-2 text-sm font-semibold transition duration-200 ease-in-out border border-zinc-700 rounded-xl bg-zinc-950 text-[#A9A69F] hover:bg-zinc-900"
       >
         <Search size={16} />
         Search

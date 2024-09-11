@@ -1,6 +1,5 @@
 import ButtonNav from "../elements/button/ButtonNav";
 import { UserRound, Search } from "lucide-react";
-import ButtonCta from "../elements/button/ButtonNavModal";
 import { NavLink } from "react-router-dom";
 import ButtonNavModal from "../elements/button/ButtonNavModal";
 

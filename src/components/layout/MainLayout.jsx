@@ -11,7 +11,7 @@ export default function MainLayout() {
     isOrderVisible,
     isFilterVisible,
     isSortVisible,
-    handleOpenModal, // Mengakses fungsi dari ModalContext
+    handleOpenModal,
     handleCloseModal,
   } = useModalContext();
 

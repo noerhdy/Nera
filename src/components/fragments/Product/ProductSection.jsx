@@ -14,7 +14,7 @@ export default function ProductSection({
       <div className="flex flex-col w-full h-full gap-4 lg:flex-row ">
         {/* Sidebar */}
         <div className="hidden w-full h-full sm:block sm:sticky sm:top-[4rem] sm:w-1/5 ">
-          <Sidebar onClick={onOpenSearch} />
+          <Sidebar onOpenSearch={onOpenSearch} />
         </div>
 
         {/* Product Section */}
