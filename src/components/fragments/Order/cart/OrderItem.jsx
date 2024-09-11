@@ -52,12 +52,12 @@ function OrderItem() {
         </div>
 
         <div className="flex items-center justify-between border-t-2 border-[#A9A69F]">
-          <div className="flex items-center justify-between w-1/4 gap-4 border border-zinc-50 ">
+          <div className="flex items-center justify-between w-1/4 gap-4 ">
             <button
               type="button"
               aria-label="Decrease quantity"
-              onClick={() => setAmount((prev) => prev - 1)}
-              //   onClick={handleMinusQuantity}
+              onClick={() => setAmount((prev) => Math.max(prev - 1, 0))} // Prevent negative quantity
+              disabled={amount === 0} // Disable button if amount is 0
             >
               <Minus size={16} />
             </button>

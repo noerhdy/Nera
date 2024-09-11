@@ -2,6 +2,7 @@ import ButtonNav from "../elements/button/ButtonNav";
 import { UserRound, Search } from "lucide-react";
 import ButtonCta from "../elements/button/ButtonNavModal";
 import { NavLink } from "react-router-dom";
+import ButtonNavModal from "../elements/button/ButtonNavModal";
 
 const Navbar = ({ onOpenSearch, onOpenOrder }) => {
   return (
@@ -25,19 +26,19 @@ const Navbar = ({ onOpenSearch, onOpenOrder }) => {
           <ButtonNav linkPage="/order" classname="active-class">
             Order
           </ButtonNav>
-          <ButtonCta
+          <ButtonNavModal
             onClick={onOpenOrder}
             classname="sm:bg-transparent sm:hover:bg-transparent"
           >
             cart
-          </ButtonCta>
+          </ButtonNavModal>
 
-          <ButtonCta
+          <ButtonNavModal
             onClick={onOpenSearch}
             classname="sm:bg-transparent sm:hover:bg-transparent text-[0.75rem] "
           >
             <Search size={16} />
-          </ButtonCta>
+          </ButtonNavModal>
           <ButtonNav linkPage="eror" classname="active-class">
             <UserRound size={16} />
           </ButtonNav>

@@ -100,6 +100,7 @@ const ProductOverview = () => {
                 type="button"
                 aria-label="Decrease quantity"
                 onClick={() => setAmount((prev) => Math.max(prev - 1, 0))} // Prevent negative quantity
+                disabled={amount === 0} // Disable button if amount is 0
               >
                 <Minus size={12} />
               </button>
@@ -113,7 +114,7 @@ const ProductOverview = () => {
               </button>
             </div>
             <Link to="/">
-              <Button className="py-2 text-[1rem] uppercase w-full">
+              <Button className="py-2 text-[1rem] bg-zinc-600 hover:bg-zinc-800 uppercase w-full">
                 Add to cart
               </Button>
             </Link>
@@ -122,15 +123,15 @@ const ProductOverview = () => {
           {/* Tabs Section */}
           <div className="py-2 text-black ">
             <ul
-              className="flex   flex-wrap sm:flex-row flex-col text-sm font-medium text-start [&_li]:bg-zinc-950"
+              className="flex flex-wrap sm:flex-row flex-col text-sm font-medium text-start [&_li]:bg-zinc-950"
               role="tablist"
             >
               <li className="" role="presentation">
                 <button
                   className={`inline-block w-full text-start  p-4 border-t-2 rounded-t-lg uppercase ${
                     activeTab === "materials"
-                      ? "text-white border-white"
-                      : "text-gray-500 border-transparent "
+                      ? "text-[#e5e4e2] border-[#A9A69F]"
+                      : "text-[#A9A69F] bg-zinc-900 border-transparent "
                   }`}
                   id="materials-tab"
                   type="button"
@@ -147,8 +148,8 @@ const ProductOverview = () => {
                 <button
                   className={`inline-block w-full text-start p-4 border-t-2 rounded-t-lg uppercase ${
                     activeTab === "sizechart"
-                      ? "text-white border-white"
-                      : "text-gray-500 border-transparent "
+                      ? "text-[#e5e4e2] border-[#A9A69F]"
+                      : "text-[#A9A69F] bg-zinc-900 border-transparent "
                   }`}
                   id="sizechart-tab"
                   type="button"
@@ -165,8 +166,8 @@ const ProductOverview = () => {
                 <button
                   className={`inline-block w-full text-start p-4 border-t-2 rounded-t-lg uppercase ${
                     activeTab === "sizeguide"
-                      ? "text-white border-white"
-                      : "text-gray-500 border-transparent "
+                      ? "text-[#e5e4e2] border-[#A9A69F]"
+                      : "text-[#A9A69F] bg-zinc-900 border-transparent "
                   }`}
                   id="sizeguide-tab"
                   type="button"
@@ -181,10 +182,10 @@ const ProductOverview = () => {
             </ul>
 
             {/* Tab Content */}
-            <div className="container size-full ">
+            <div className="container size-full bg-zinc-950 text-[#e5e4e2]">
               {activeTab === "materials" && (
                 <div
-                  className="bg-gray-50 aspect-video gap-2 flex-col p-4 flex items-start justify-center
+                  className=" aspect-video gap-2 flex-col p-4 flex items-start justify-center
           [&_p]:text-[0.75rem] " // Consistent height
                   id="materials"
                   role="tabpanel"
@@ -216,7 +217,7 @@ const ProductOverview = () => {
 
               {activeTab === "sizechart" && (
                 <div
-                  className="flex items-center justify-center w-full bg-gray-50"
+                  className="flex items-center justify-center w-full "
                   id="sizechart"
                   role="tabpanel"
                   aria-labelledby="sizechart-tab"
@@ -231,7 +232,7 @@ const ProductOverview = () => {
 
               {activeTab === "sizeguide" && (
                 <div
-                  className="flex flex-col justify-center gap-4 p-4 bg-gray-50 aspect-video" // Consistent height
+                  className="flex flex-col justify-center gap-4 p-4 text-[#e5e4e2]  aspect-video" // Consistent height
                   id="sizeguide"
                   role="tabpanel"
                   aria-labelledby="sizeguide-tab"
@@ -239,7 +240,7 @@ const ProductOverview = () => {
                   <h1 className="w-full text-[1.5rem] uppercase py-2">
                     Size Guide
                   </h1>
-                  <table className="w-full py-2 text-left text-black table-fixed rtl:text-right">
+                  <table className="w-full py-2 text-left table-fixed rtl:text-right">
                     <thead className="uppercase text-[0.75rem]">
                       <tr className="border-b dark:bg-gray-800 [&_th]:size-1/4">
                         <th>Size</th>
@@ -261,7 +262,7 @@ const ProductOverview = () => {
                     </tbody>
                   </table>
 
-                  <h1 className="w-3/4 text-[0.875rem] text-black uppercase py-2">
+                  <h1 className="w-3/4 text-[0.875rem]  uppercase py-2">
                     Just a size guide for definite size, keep compare with size
                     chart
                   </h1>
