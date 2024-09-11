@@ -5,7 +5,7 @@ import {
   ModalOrder,
   ModalFilter,
   ModalSort,
-} from "@/components/fragments/indexModal";
+} from "@/components/fragments/IndexModal";
 
 const ModalComponent = () => {
   const {
