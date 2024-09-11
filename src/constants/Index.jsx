@@ -1,79 +1,154 @@
-import imgProduct1 from "../assets/img/itemProduct/anatomize.jpg";
-import imgProduct2 from "../assets/img/itemProduct/convenire.jpg";
-import imgProduct3 from "../assets/img/itemProduct/jacketTempur.jpg";
-import imgProduct4 from "../assets/img/itemProduct/matcros.jpg";
-import imgProduct5 from "../assets/img/itemProduct/skuligan.jpg";
-import imgProduct6 from "../assets/img/itemProduct/swag.jpg";
-import imgProduct7 from "../assets/img/itemProduct/nordrav.jpg";
-import imgProduct8 from "../assets/img/itemProduct/germal.jpg";
+// Import statements
+import imgAnatomize1 from "../assets/img/itemProduct/anatomize/anatomize1.jpg";
+import imgAnatomize2 from "../assets/img/itemProduct/anatomize/anatomize2.jpg";
+import imgAnatomize3 from "../assets/img/itemProduct/anatomize/anatomize3.jpg";
+import imgAnatomize4 from "../assets/img/itemProduct/anatomize/anatomize4.jpg";
+import imgConvernire1 from "../assets/img/itemProduct/convernire/convenire1.jpg";
+import imgConvernire2 from "../assets/img/itemProduct/convernire/convenire2.jpg";
+import imgConvernire3 from "../assets/img/itemProduct/convernire/convenire3.jpg";
+import imgConvernire4 from "../assets/img/itemProduct/convernire/convenire4.jpg";
+import imgJacketTempur1 from "../assets/img/itemProduct/jacketTempur/jacketTempur1.jpg";
+import imgJacketTempur2 from "../assets/img/itemProduct/jacketTempur/jacketTempur2.jpg";
+import imgJacketTempur3 from "../assets/img/itemProduct/jacketTempur/jacketTempur3.jpg";
+import imgJacketTempur4 from "../assets/img/itemProduct/jacketTempur/jacketTempur4.jpg";
+import imgMatcros1 from "../assets/img/itemProduct/matcros/matcros1.jpg";
+import imgMatcros2 from "../assets/img/itemProduct/matcros/matcros2.jpg";
+import imgMatcros3 from "../assets/img/itemProduct/matcros/matcros3.jpg";
+import imgMatcros4 from "../assets/img/itemProduct/matcros/matcros4.jpg";
+import imgSkuligan1 from "../assets/img/itemProduct/skuligan/skuligan1.jpg";
+import imgSkuligan2 from "../assets/img/itemProduct/skuligan/skuligan2.jpg";
+import imgSkuligan3 from "../assets/img/itemProduct/skuligan/skuligan3.jpg";
+import imgSkuligan4 from "../assets/img/itemProduct/skuligan/skuligan4.jpg";
+import imgBorz1 from "../assets/img/itemProduct/borz/borz1.jpg";
+import imgBorz2 from "../assets/img/itemProduct/borz/borz2.jpg";
+import imgBorz3 from "../assets/img/itemProduct/borz/borz3.jpg";
+import imgBorz4 from "../assets/img/itemProduct/borz/borz4.jpg";
+import imgNordrav1 from "../assets/img/itemProduct/nordrav/nordrav1.jpg";
+import imgNordrav2 from "../assets/img/itemProduct/nordrav/nordrav2.jpg";
+import imgNordrav3 from "../assets/img/itemProduct/nordrav/nordrav3.jpg";
+import imgNordrav4 from "../assets/img/itemProduct/nordrav/nordrav4.jpg";
+import imgGermal1 from "../assets/img/itemProduct/germal/germal1.jpg";
+import imgGermal2 from "../assets/img/itemProduct/germal/germal2.jpg";
+import imgGermal3 from "../assets/img/itemProduct/germal/germal3.jpg";
+import imgGermal4 from "../assets/img/itemProduct/germal/germal4.jpg";
 
+// Data Item with updated images
 export const dataItem = [
   {
-    id: 1,
+    id: "1",
     name: "Anatomize",
-    price: 189.0,
-    discountPrice: 0,
-    images: imgProduct1,
-    slug: "Anatomize-T",
+    description: "A comfortable graphic T-shirt with a unique design.",
+    price: 189,
+    sizes: ["M", "L", "XL"],
+    colors: "black",
+    images: [imgAnatomize1, imgAnatomize2, imgAnatomize3, imgAnatomize4],
+    imgsize: "sizeSS",
+    category: "T-Shirts",
+    stock: 20,
+    material: "Heavyweight 230gsm",
   },
   {
-    id: 2,
-    name: "Convenire",
-    price: 189.0,
-    discountPrice: 0,
-    images: imgProduct2,
-    slug: "Convenire-T",
+    id: "2",
+    name: "Convernire",
+    description: "A comfortable graphic T-shirt with a unique design.",
+    price: 189,
+    sizes: ["L", "XL"],
+    colors: "black",
+    images: [imgConvernire1, imgConvernire2, imgConvernire3, imgConvernire4],
+    imgsize: "sizeSS",
+    category: "T-Shirts",
+    stock: 10,
+    material: "Heavyweight 230gsm",
   },
   {
-    id: 3,
+    id: "3",
     name: "Jacket Tempur",
-    price: 349.0,
-    discountPrice: 0,
-    images: imgProduct3,
-    slug: "Jacket-Temput-J",
+    description: "A comfortable graphic T-shirt with a unique design.",
+    price: 349,
+    sizes: ["XL"],
+    colors: "black",
+    images: [
+      imgJacketTempur1,
+      imgJacketTempur2,
+      imgJacketTempur3,
+      imgJacketTempur4,
+    ],
+    imgsize: "sizeLS",
+    category: "Outwear",
+    stock: 2,
+    material: "Heavyweight 330gsm",
   },
   {
-    id: 4,
+    id: "4",
     name: "Matcros",
-    price: 189.0,
-    discountPrice: 0,
-    images: imgProduct4,
-    slug: "Matcros-T",
+    description: "A comfortable graphic T-shirt with a unique design.",
+    price: 189,
+    sizes: ["M", "L"],
+    colors: "black",
+    images: [imgMatcros1, imgMatcros2, imgMatcros3, imgMatcros4],
+    imgsize: "sizeSS",
+    category: "T-Shirts",
+    stock: 10,
+    material: "Heavyweight 230gsm",
   },
   {
-    id: 5,
+    id: "5",
     name: "Skuligan",
-    price: 429.0,
-    discountPrice: 0,
-    images: imgProduct5,
-    slug: "Skuligan-J",
+    description: "A stylish jacket with a modern design.",
+    price: 429,
+    sizes: ["M", "L", "XL"],
+    colors: "black",
+    images: [imgSkuligan1, imgSkuligan2, imgSkuligan3, imgSkuligan4],
+    imgsize: "sizeLS",
+    category: "Outwear",
+    stock: 15,
+    material: "Heavyweight 330gsm",
   },
   {
-    id: 6,
-    name: "Swag",
-    price: 189.0,
-    discountPrice: 0,
-    images: imgProduct6,
-    slug: "Swag-T",
+    id: "6",
+    name: "Borz",
+    description: "A trendy T-shirt with vibrant colors.",
+    price: 189,
+    sizes: ["S", "M", "L"],
+    colors: "black",
+    images: [imgBorz1, imgBorz2, imgBorz3, imgBorz4],
+    imgsize: "sizeSS",
+    category: "T-Shirts",
+    stock: 25,
+    material: "Heavyweight 230gsm",
   },
   {
-    id: 7,
+    id: "7",
     name: "Nordrav",
-    price: 429.0,
-    discountPrice: 0,
-    images: imgProduct7,
-    slug: "Nordrav-H",
+    description: "A rugged jacket designed for durability.",
+    price: 429,
+    sizes: ["M", "L", "XL"],
+    colors: "black",
+    images: [imgNordrav1, imgNordrav2, imgNordrav3, imgNordrav4],
+    imgsize: "sizePO",
+    category: "Outwear",
+    stock: 20,
+    material: "Heavyweight 330gsm",
   },
   {
-    id: 8,
+    id: "8",
     name: "Germal",
-    price: 199.0,
-    discountPrice: 0,
-    images: imgProduct8,
-    slug: "Germal-LS",
+    description: "A long-sleeve shirt with a comfortable fit.",
+    price: 199,
+    sizes: ["M", "L"],
+    colors: "black",
+    images: [imgGermal1, imgGermal2, imgGermal3, imgGermal4],
+    imgsize: "sizeLS",
+    category: "T-Shirts",
+    stock: 15,
+    material: "Heavyweight 230gsm",
   },
 ];
 
+// size
+import sizeSS from "../assets/img/itemProduct/size/sizeSS.jpg";
+import sizeLS from "../assets/img/itemProduct/size/sizeLS.jpg";
+import sizePO from "../assets/img/itemProduct/size/sizePO.jpg";
 export const dataSize = [
   {
     id: 1,

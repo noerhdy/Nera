@@ -4,19 +4,8 @@ import { dataSize } from "@/constants/Index";
 import { Minus, Plus } from "lucide-react";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import imgProduct2 from "@/assets/img/itemProduct/convenire.jpg";
-import imgProduct2_1 from "@/assets/img/itemProduct/convenire-1.jpg";
-import imgProduct2_2 from "@/assets/img/itemProduct/convenire-2.jpg";
-import imgProduct2_3 from "@/assets/img/itemProduct/convenire-3.jpg";
 
 const ProductOverview = () => {
-  const [images] = useState({
-    img1: imgProduct2_3,
-    img2: imgProduct2_1,
-    img3: imgProduct2_2,
-    img4: imgProduct2,
-  });
-
   const [activeImg, setActiveImage] = useState(images.img4);
   const [amount, setAmount] = useState(0);
   const [activeTab, setActiveTab] = useState("materials");

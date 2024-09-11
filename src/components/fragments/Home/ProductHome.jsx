@@ -20,8 +20,8 @@ export default function ProductHome() {
           <div key={index} className="">
             <CardProduct
               name={item.name}
-              images={item.images}
-              price={item.price}
+              images={item.images[0]}
+              price={item.price.toFixed(3)}
             />
           </div>
         ))}

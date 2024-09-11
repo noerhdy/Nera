@@ -14,7 +14,7 @@ const CardProduct = ({ images, name, price }) => {
           <h3 className="text-[0.75rem] sm:text-[1rem] font-medium text-[#E7E7E7]">
             {name}
           </h3>
-          <p className="text-[0.75rem] text-[#E7E7E7]">Rp. {price}.000</p>
+          <p className="text-[0.75rem] text-[#E7E7E7]">Rp. {price}</p>
         </div>
       </a>
     </>
