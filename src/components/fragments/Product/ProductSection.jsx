@@ -43,13 +43,7 @@ export default function ProductSection({
           {/* Product Grid */}
           <div className="grid grid-cols-2 gap-2 lg:grid-cols-4 lg:gap-2">
             {dataItem.map((item, index) => (
-              <div key={index}>
-                <CardProduct
-                  name={item.name}
-                  images={item.images}
-                  price={item.price}
-                />
-              </div>
+              <CardProduct key={index} data={item} />
             ))}
           </div>
         </div>

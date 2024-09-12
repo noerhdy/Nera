@@ -19,9 +19,6 @@ const Navbar = ({ onOpenSearch, onOpenOrder }) => {
             Product
           </ButtonNav>
 
-          <ButtonNav linkPage="/productOverview" classname="active-class">
-            Overview
-          </ButtonNav>
           <ButtonNav linkPage="/order" classname="active-class">
             Order
           </ButtonNav>

@@ -10,12 +10,16 @@ const RoutesConfig = () => {
   return (
     <Router>
       <Routes>
-        <Route path="*" element={<ErorPage />} />
+        {/* Route for specific product pages */}
+
+        {/* Routes within MainLayout */}
         <Route path="/" element={<MainLayout />}>
           <Route index element={<HomePage />} />
-          <Route path="/product" element={<ProductPage />} />
-          <Route path="/productOverview" element={<ProductOverview />} />
+          <Route path=":slug" element={<ProductOverview />} />
+          <Route path="product" element={<ProductPage />} />
+          <Route path="/product/:slug" element={<ProductOverview />} />
         </Route>
+
         <Route path="/order" element={<OrderPage />} />
       </Routes>
     </Router>

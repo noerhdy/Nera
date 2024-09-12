@@ -16,14 +16,8 @@ export default function ProductHome() {
 
       {/* Product grid */}
       <div className="grid grid-cols-2 gap-2 overflow-hidden lg:grid-cols-4 lg:gap-2">
-        {dataItem.map((item, index) => (
-          <div key={index} className="">
-            <CardProduct
-              name={item.name}
-              images={item.images[0]}
-              price={item.price.toFixed(3)}
-            />
-          </div>
+        {dataItem.map((item, key) => (
+          <CardProduct key={key} data={item} />
         ))}
       </div>
     </section>

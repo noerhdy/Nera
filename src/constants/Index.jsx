@@ -46,6 +46,7 @@ export const dataItem = [
     category: "T-Shirts",
     stock: 20,
     material: "Heavyweight 230gsm",
+    slug: "anatomize",
   },
   {
     id: "2",
@@ -59,6 +60,7 @@ export const dataItem = [
     category: "T-Shirts",
     stock: 10,
     material: "Heavyweight 230gsm",
+    slug: "convernire",
   },
   {
     id: "3",
@@ -77,6 +79,7 @@ export const dataItem = [
     category: "Outwear",
     stock: 2,
     material: "Heavyweight 330gsm",
+    slug: "jackettempur",
   },
   {
     id: "4",
@@ -90,6 +93,7 @@ export const dataItem = [
     category: "T-Shirts",
     stock: 10,
     material: "Heavyweight 230gsm",
+    slug: "matcros",
   },
   {
     id: "5",
@@ -103,6 +107,7 @@ export const dataItem = [
     category: "Outwear",
     stock: 15,
     material: "Heavyweight 330gsm",
+    slug: "skuligan",
   },
   {
     id: "6",
@@ -116,6 +121,7 @@ export const dataItem = [
     category: "T-Shirts",
     stock: 25,
     material: "Heavyweight 230gsm",
+    slug: "borz",
   },
   {
     id: "7",
@@ -129,6 +135,7 @@ export const dataItem = [
     category: "Outwear",
     stock: 20,
     material: "Heavyweight 330gsm",
+    slug: "nordrav",
   },
   {
     id: "8",
@@ -142,6 +149,7 @@ export const dataItem = [
     category: "T-Shirts",
     stock: 15,
     material: "Heavyweight 230gsm",
+    slug: "germal",
   },
 ];
 
