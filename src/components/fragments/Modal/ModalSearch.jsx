@@ -1,9 +1,23 @@
 import Input from "@/components/elements/input/InputIndex";
+import { dataItem } from "@/constants/Index";
 import { motion, AnimatePresence } from "framer-motion";
 import { Search } from "lucide-react";
 import { X } from "lucide-react";
+import { useState } from "react";
 
 const ModalSearch = ({ isVisible, onClose }) => {
+  const [searchQuery, setSearchQuery] = useState("");
+  const [filteredItems, setFilteredItems] = useState(dataItem);
+
+  const handleSearch = (event) => {
+    const query = event.target.value.toLowerCase();
+    setSearchQuery(query);
+
+    const results = dataItem.filter((item) =>
+      item.name.toLowerCase().includes(query)
+    );
+    setFilteredItems(results);
+  };
   return (
     <AnimatePresence>
       {isVisible && (
@@ -31,7 +45,10 @@ const ModalSearch = ({ isVisible, onClose }) => {
                     placeholder="Search"
                     name="search"
                     autoComplete="user-search"
+                    value={searchQuery}
+                    onChange={handleSearch}
                   />
+
                   <button
                     onClick={onClose}
                     className="px-2 sm:text-[1rem] text-[0.75rem] text-zinc-400 transition duration-200 hover:text-red-500"
@@ -46,6 +63,19 @@ const ModalSearch = ({ isVisible, onClose }) => {
                   <X />
                 </button>
               </div>
+            </div>
+            <div>
+              {filteredItems.length > 0 ? (
+                <ul>
+                  {filteredItems.map((item) => (
+                    <li key={item.id}>
+                      <a href={`/product/${item.slug}`}>{item.name}</a>
+                    </li>
+                  ))}
+                </ul>
+              ) : (
+                <p>No results found</p>
+              )}
             </div>
           </motion.div>
         </>

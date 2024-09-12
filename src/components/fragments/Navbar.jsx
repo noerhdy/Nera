@@ -22,12 +22,6 @@ const Navbar = ({ onOpenSearch, onOpenOrder }) => {
           <ButtonNav linkPage="/order" classname="active-class">
             Order
           </ButtonNav>
-          <ButtonNavModal
-            onClick={onOpenOrder}
-            classname="sm:bg-transparent sm:hover:bg-transparent"
-          >
-            cart
-          </ButtonNavModal>
 
           <ButtonNavModal
             onClick={onOpenSearch}
@@ -35,7 +29,7 @@ const Navbar = ({ onOpenSearch, onOpenOrder }) => {
           >
             <Search size={16} />
           </ButtonNavModal>
-          <ButtonNav linkPage="eror" classname="active-class">
+          <ButtonNav linkPage="" classname="active-class">
             <UserRound size={16} />
           </ButtonNav>
         </div>

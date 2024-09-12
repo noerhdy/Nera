@@ -1,49 +1,79 @@
-import { Minus } from "lucide-react";
-import { Trash2 } from "lucide-react";
-import { Trash } from "lucide-react";
-import { Plus } from "lucide-react";
-import React from "react";
-import { useState } from "react";
+import { dataItem } from "@/constants/Index";
+import { Trash2, Plus, Minus } from "lucide-react";
+import React, { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { changeQuantity, removeFromCart } from "@/stores/Cart";
 
-function OrderItem() {
-  const [amount, setAmount] = useState(0);
+const OrderItem = (props) => {
+  const { productId, quantity: initialQuantity } = props.data;
+  const [detail, setDetail] = useState({});
+  const [quantity, setQuantity] = useState(initialQuantity);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const findDetail = dataItem.find((product) => product.id === productId);
+    setDetail(findDetail || {});
+  }, [productId]);
+
+  const handleMinusQuantity = () => {
+    const newQuantity = quantity - 1 < 1 ? 1 : quantity - 1;
+    setQuantity(newQuantity);
+    dispatch(changeQuantity({ productId, quantity: newQuantity }));
+  };
+
+  const handlePlusQuantity = () => {
+    const newQuantity = quantity + 1;
+    setQuantity(newQuantity);
+    dispatch(changeQuantity({ productId, quantity: newQuantity }));
+  };
+
+  const handleRemove = () => {
+    dispatch(removeFromCart({ productId }));
+  };
+
   return (
     <>
       <section className="my-2 border-y-2 border-[#A9A69F]">
-        <div className="flex w-full gap-2 ">
+        <div className="flex w-full gap-2">
           {/* Gambar Produk */}
           <div className="relative flex-shrink-0 size-24">
             <img
               className="object-cover w-full h-auto bg-center aspect-square"
-              src="./skuligan.jpg" // Mengambil gambar pertama dari array images
-              alt="Product Image"
+              src={detail?.images?.[0] || "./skuligan.jpg"} // Gambar dari detail produk
+              alt={detail.name || "Product Image"}
             />
           </div>
 
           {/* Detail Produk */}
-          <div className="flex justify-between w-full text-wrap ">
+          <div className="flex justify-between w-full text-wrap">
             {/* Bagian Kiri - Nama Produk dan Harga */}
-            <div className="flex flex-col justify-between ">
+            <div className="flex flex-col justify-between">
               <div className="flex flex-col">
-                <h1 className="font-bold text-[1rem] text-start ">Skuligan</h1>
+                <h1 className="font-bold text-[1rem] text-start ">
+                  {detail.name || "Skuligan"}
+                </h1>
                 <span className="font-semibold sm:text-[1rem] text-[0.75rem]">
-                  L
+                  {detail.size || "L"}
                 </span>
               </div>
               <div className="flex flex-col items-center">
-                <h1 className="font-medium  text-[0.75rem]">Rp.200.000</h1>
-                <p className="font-medium text-[0.75rem] line-through text-zinc-400">
-                  Rp.200.000
-                </p>
+                <h1 className="font-medium text-[0.75rem]">
+                  Rp.{detail.price?.toLocaleString("id-ID") || "200.000"}
+                </h1>
+                {detail.discountPrice && (
+                  <p className="font-medium text-[0.75rem] line-through text-zinc-400">
+                    Rp.{detail.discountPrice.toLocaleString("id-ID")}
+                  </p>
+                )}
               </div>
             </div>
 
             {/* Bagian Kanan - Kontrol Kuantitas dan Tombol Hapus */}
-            <div className="flex flex-col items-end justify-between ">
+            <div className="flex flex-col items-end justify-between">
               <button
                 type="button"
-                className="p-2 text-red-900 "
-                //   onClick={handleRemove}
+                className="p-2 text-red-900"
+                onClick={handleRemove}
               >
                 <Trash2 size={16} />
               </button>
@@ -52,33 +82,30 @@ function OrderItem() {
         </div>
 
         <div className="flex items-center justify-between border-t-2 border-[#A9A69F]">
-          <div className="flex items-center justify-between w-1/4 gap-4 ">
+          <div className="flex items-center justify-between w-1/4 gap-4">
             <button
               type="button"
               aria-label="Decrease quantity"
-              onClick={() => setAmount((prev) => Math.max(prev - 1, 0))} // Prevent negative quantity
-              disabled={amount === 0} // Disable button if amount is 0
+              onClick={handleMinusQuantity}
             >
               <Minus size={16} />
             </button>
-            <span className="font-semibold text-[1rem]">{amount}</span>
+            <span className="font-semibold text-[1rem]">{quantity}</span>
             <button
               type="button"
               aria-label="Increase quantity"
-              onClick={() => setAmount((prev) => prev + 1)}
-              //   onClick={handlePlusQuantity}
+              onClick={handlePlusQuantity}
             >
               <Plus size={16} />
             </button>
           </div>
-          <h1 className="font-medium  text-[1rem]">Rp.200.000</h1>
-          {/* <p className="font-medium text-[0.75rem] line-through text-zinc-400">
-          Rp.200.000
-        </p> */}
+          <h1 className="font-medium text-[1rem]">
+            Rp.{(detail.price * quantity).toLocaleString("id-ID")}
+          </h1>
         </div>
       </section>
     </>
   );
-}
+};
 
 export default OrderItem;

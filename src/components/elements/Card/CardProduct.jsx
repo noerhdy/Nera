@@ -1,10 +1,9 @@
 import React from "react";
-import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 const CardProduct = (props) => {
-  const carts = useSelector((store) => store.cart.items);
   const { id, name, price, images, slug } = props.data;
+
   return (
     <>
       <div>
@@ -20,7 +19,8 @@ const CardProduct = (props) => {
               {name}
             </h3>
             <p className="text-[0.75rem] text-[#E7E7E7]">
-              Rp.{price.toFixed(3)}
+              Rp.
+              {new Intl.NumberFormat("id-ID").format(price)}
             </p>
           </div>
         </Link>

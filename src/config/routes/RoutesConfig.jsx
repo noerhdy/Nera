@@ -11,15 +11,14 @@ const RoutesConfig = () => {
     <Router>
       <Routes>
         {/* Route for specific product pages */}
-
         {/* Routes within MainLayout */}
         <Route path="/" element={<MainLayout />}>
           <Route index element={<HomePage />} />
-          <Route path=":slug" element={<ProductOverview />} />
           <Route path="product" element={<ProductPage />} />
-          <Route path="/product/:slug" element={<ProductOverview />} />
+          <Route path="product/:slug" element={<ProductOverview />} />
+          <Route path=":slug" element={<ProductOverview />} />{" "}
+          <Route path="*" element={<ErorPage />} />
         </Route>
-
         <Route path="/order" element={<OrderPage />} />
       </Routes>
     </Router>
