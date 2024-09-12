@@ -33,9 +33,9 @@ import imgGermal3 from "../assets/img/itemProduct/germal/germal3.jpg";
 import imgGermal4 from "../assets/img/itemProduct/germal/germal4.jpg";
 
 // size
-import sizeSS from "../assets/img/itemProduct/size/sizeSS.jpg";
-import sizeLS from "../assets/img/itemProduct/size/sizeLS.jpg";
-import sizePO from "../assets/img/itemProduct/size/sizePO.jpg";
+import sizeSs from "../assets/img/imgSize/sizeSs.jpg";
+import sizeLs from "../assets/img/imgSize/sizeLs.jpg";
+import sizePo from "../assets/img/imgSize/sizePo.jpg";
 
 // Data Item with updated images
 export const dataItem = [
@@ -47,7 +47,7 @@ export const dataItem = [
     sizes: ["M", "L", "XL"],
     colors: "black",
     images: [imgAnatomize1, imgAnatomize2, imgAnatomize3, imgAnatomize4],
-    imgsize: sizeSS,
+    imgsize: sizeSs,
     category: "T-Shirts",
     stock: 20,
     material: "Heavyweight 230gsm",
@@ -61,7 +61,7 @@ export const dataItem = [
     sizes: ["L", "XL"],
     colors: "black",
     images: [imgConvernire1, imgConvernire2, imgConvernire3, imgConvernire4],
-    imgsize: sizeSS,
+    imgsize: sizeSs,
     category: "T-Shirts",
     stock: 10,
     material: "Heavyweight 230gsm",
@@ -80,7 +80,7 @@ export const dataItem = [
       imgJacketTempur3,
       imgJacketTempur4,
     ],
-    imgsize: sizeLS,
+    imgsize: sizeLs,
     category: "Outwear",
     stock: 2,
     material: "Heavyweight 330gsm",
@@ -94,7 +94,7 @@ export const dataItem = [
     sizes: ["M", "L"],
     colors: "black",
     images: [imgMatcros1, imgMatcros2, imgMatcros3, imgMatcros4],
-    imgsize: sizeSS,
+    imgsize: sizeSs,
     category: "T-Shirts",
     stock: 10,
     material: "Heavyweight 230gsm",
@@ -108,7 +108,7 @@ export const dataItem = [
     sizes: ["M", "L", "XL"],
     colors: "black",
     images: [imgSkuligan1, imgSkuligan2, imgSkuligan3, imgSkuligan4],
-    imgsize: sizeLS,
+    imgsize: sizeLs,
     category: "Outwear",
     stock: 15,
     material: "Heavyweight 330gsm",
@@ -122,7 +122,7 @@ export const dataItem = [
     sizes: ["M", "L", "XL"],
     colors: "black",
     images: [imgBorz1, imgBorz2, imgBorz3, imgBorz4],
-    imgsize: "sizeSS",
+    imgsize: sizeSs,
     category: "T-Shirts",
     stock: 25,
     material: "Heavyweight 230gsm",
@@ -136,7 +136,7 @@ export const dataItem = [
     sizes: ["M", "L", "XL"],
     colors: "black",
     images: [imgNordrav1, imgNordrav2, imgNordrav3, imgNordrav4],
-    imgsize: sizePO,
+    imgsize: sizePo,
     category: "Outwear",
     stock: 20,
     material: "Heavyweight 330gsm",
@@ -150,7 +150,7 @@ export const dataItem = [
     sizes: ["M", "L"],
     colors: "black",
     images: [imgGermal1, imgGermal2, imgGermal3, imgGermal4],
-    imgsize: sizeLS,
+    imgsize: sizeLs,
     category: "T-Shirts",
     stock: 15,
     material: "Heavyweight 230gsm",
