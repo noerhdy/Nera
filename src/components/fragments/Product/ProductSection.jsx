@@ -4,7 +4,7 @@ import { dataItem } from "@/constants/Index";
 import Sidebar from "./Sidebar";
 import { ChevronDown } from "lucide-react";
 import { useDispatch, useSelector } from "react-redux";
-import { openModal } from "@/stores/modalSlice";
+import { openModal } from "@/stores/ModalSlice";
 
 export default function ProductSection() {
   const dispatch = useDispatch();
