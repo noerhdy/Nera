@@ -1,3 +1,4 @@
+import ScrollToTop from "@/components/elements/ScrollToTops";
 import MainLayout from "@/components/layout/MainLayout";
 import ErorPage from "@/pages/ErorPage";
 import HomePage from "@/pages/home/HomePage";
@@ -9,6 +10,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 const RoutesConfig = () => {
   return (
     <Router>
+      <ScrollToTop />
       <Routes>
         {/* Route for specific product pages */}
         {/* Routes within MainLayout */}

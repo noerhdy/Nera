@@ -35,28 +35,42 @@ const ProductOverview = () => {
   };
 
   const handlePlusQuantity = () => {
-    setQuantity(quantity + 1);
+    const availableStock = detail.sizes[selectedSize]?.stock || 0;
+    if (quantity + 1 <= availableStock) {
+      setQuantity(quantity + 1);
+    }
   };
 
   useEffect(() => {
     if (detail && detail.images && detail.images.length > 0) {
-      setActiveImage(detail.images[0]); // images [index 0] saat pertama kali dimuat
+      setActiveImage(detail.images[0]);
     }
   }, [detail]);
 
   const handleSizeChange = (size) => {
-    setSelectedSize(size);
+    if (detail.sizes[size].stock > 0) {
+      setSelectedSize(size);
+      setQuantity(1); // Reset quantity ketika ukuran baru dipilih
+    }
   };
 
   const handleClearSize = () => {
     setSelectedSize("");
+    setQuantity(1); // Reset quantity
   };
 
   const handleAddToCart = () => {
+    if (!selectedSize) {
+      alert(
+        "Silakan pilih ukuran terlebih dahulu sebelum menambahkan ke keranjang."
+      );
+      return;
+    }
     dispatch(
       addtoCart({
         productId: detail.id,
         quantity: quantity,
+        size: selectedSize || null, // Kirim selectedSize hanya jika ada
       })
     );
     handleOpenModal("order");
@@ -112,21 +126,34 @@ const ProductOverview = () => {
               Size
             </h2>
             <div className="flex gap-2 mb-4">
-              {["M", "L", "XL"].map((size) => (
-                <button
-                  key={size}
-                  onClick={() => handleSizeChange(size)}
-                  className={`px-4 py-1 text-sm font-semibold border border-zinc-700 flex items-center justify-center transition duration-200 ease-in-out text-[0.75rem]
-                  ${
-                    selectedSize === size
-                      ? "bg-[#5d5d5d] text-white"
-                      : "bg-zinc-950 text-[#A9A69F] hover:bg-zinc-800"
-                  }`}
-                >
-                  {size}
-                </button>
-              ))}
+              {Object.keys(detail.sizes || {}).map((size) => {
+                const isOutOfStock = detail.sizes[size].stock === 0;
+
+                return (
+                  <button
+                    key={size}
+                    onClick={() => handleSizeChange(size)}
+                    className={`px-4 py-1 text-sm font-semibold border border-zinc-700 flex items-center justify-center transition duration-200 ease-in-out text-[0.75rem] ${
+                      selectedSize === size
+                        ? "bg-[#5d5d5d] text-white"
+                        : isOutOfStock
+                        ? "bg-zinc-900 text-zinc-600 line-through cursor-not-allowed"
+                        : "bg-zinc-950 text-[#A9A69F] hover:bg-zinc-800"
+                    }`}
+                    disabled={isOutOfStock}
+                  >
+                    {size} {isOutOfStock && ""}
+                  </button>
+                );
+              })}
             </div>
+
+            {/* Display warning when size is out of stock */}
+            {!selectedSize && (
+              <p className="text-[#A9A69F] text-[0.75rem]">
+                Pilih ukuran yang tersedia
+              </p>
+            )}
 
             {selectedSize && (
               <button

@@ -1,22 +1,22 @@
-import { dataItem } from "@/constants/Index";
-import { Trash2, Plus, Minus } from "lucide-react";
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
+import { Trash2, Plus, Minus } from "lucide-react";
 import { changeQuantity, removeFromCart } from "@/stores/Cart";
+import { dataItem } from "@/constants/Index";
 
 const OrderItem = (props) => {
-  const { productId, quantity: initialQuantity } = props.data;
+  const { productId, quantity: initialQuantity, size } = props.data;
   const [detail, setDetail] = useState({});
   const [quantity, setQuantity] = useState(initialQuantity);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const findDetail = dataItem.find((product) => product.id === productId);
-    setDetail(findDetail || {});
+    const productDetail = dataItem.find((product) => product.id === productId);
+    setDetail(productDetail || {});
   }, [productId]);
 
   const handleMinusQuantity = () => {
-    const newQuantity = quantity - 1 < 1 ? 1 : quantity - 1;
+    const newQuantity = Math.max(quantity - 1, 1);
     setQuantity(newQuantity);
     dispatch(changeQuantity({ productId, quantity: newQuantity }));
   };
@@ -28,83 +28,81 @@ const OrderItem = (props) => {
   };
 
   const handleRemove = () => {
-    dispatch(removeFromCart({ productId }));
+    dispatch(removeFromCart({ productId, size }));
   };
 
   return (
-    <>
-      <section className="my-2 border-y-2 border-[#A9A69F]">
-        <div className="flex w-full gap-2">
-          {/* Gambar Produk */}
-          <div className="relative flex-shrink-0 size-24">
-            <img
-              className="object-cover w-full h-auto bg-center aspect-square"
-              src={detail?.images?.[0] || "./skuligan.jpg"} // Gambar dari detail produk
-              alt={detail.name || "Product Image"}
-            />
-          </div>
-
-          {/* Detail Produk */}
-          <div className="flex justify-between w-full text-wrap">
-            {/* Bagian Kiri - Nama Produk dan Harga */}
-            <div className="flex flex-col justify-between">
-              <div className="flex flex-col">
-                <h1 className="font-bold text-[1rem] text-start ">
-                  {detail.name || "Skuligan"}
-                </h1>
-                <span className="font-semibold sm:text-[1rem] text-[0.75rem]">
-                  {detail.size || "L"}
-                </span>
-              </div>
-              <div className="flex flex-col items-center">
-                <h1 className="font-medium text-[0.75rem]">
-                  Rp.{detail.price?.toLocaleString("id-ID") || "200.000"}
-                </h1>
-                {detail.discountPrice && (
-                  <p className="font-medium text-[0.75rem] line-through text-zinc-400">
-                    Rp.{detail.discountPrice.toLocaleString("id-ID")}
-                  </p>
-                )}
-              </div>
-            </div>
-
-            {/* Bagian Kanan - Kontrol Kuantitas dan Tombol Hapus */}
-            <div className="flex flex-col items-end justify-between">
-              <button
-                type="button"
-                className="p-2 text-red-900"
-                onClick={handleRemove}
-              >
-                <Trash2 size={16} />
-              </button>
-            </div>
-          </div>
+    <section className="my-2 border-y-2 border-[#A9A69F]">
+      <div className="flex w-full gap-2">
+        {/* Product Image */}
+        <div className="relative flex-shrink-0 size-24">
+          <img
+            className="object-cover w-full h-auto bg-center aspect-square"
+            src={detail?.images?.[0]}
+            alt={detail.name}
+          />
         </div>
 
-        <div className="flex items-center justify-between border-t-2 border-[#A9A69F]">
-          <div className="flex items-center justify-between w-1/4 gap-4">
+        {/* Product Details */}
+        <div className="flex justify-between w-full text-wrap">
+          {/* Left - Product Name and Price */}
+          <div className="flex flex-col justify-between">
+            <div className="flex flex-col">
+              <h1 className="font-bold text-[1rem] text-start">
+                {detail.name}
+              </h1>
+              <span className="font-semibold sm:text-[1rem] text-[0.75rem]">
+                {size}
+              </span>
+            </div>
+            <div className="flex flex-col items-start">
+              <h1 className="font-medium text-[0.75rem]">
+                Rp.{detail.price?.toLocaleString("id-ID")}
+              </h1>
+              {detail.discountPrice && (
+                <p className="font-medium text-[0.75rem] line-through text-zinc-400">
+                  Rp.{detail.discountPrice.toLocaleString("id-ID")}
+                </p>
+              )}
+            </div>
+          </div>
+
+          {/* Right - Quantity Controls and Remove Button */}
+          <div className="flex flex-col items-end justify-between">
             <button
               type="button"
-              aria-label="Decrease quantity"
-              onClick={handleMinusQuantity}
+              className="p-2 text-red-900"
+              onClick={handleRemove}
             >
-              <Minus size={16} />
-            </button>
-            <span className="font-semibold text-[1rem]">{quantity}</span>
-            <button
-              type="button"
-              aria-label="Increase quantity"
-              onClick={handlePlusQuantity}
-            >
-              <Plus size={16} />
+              <Trash2 size={16} />
             </button>
           </div>
-          <h1 className="font-medium text-[1rem]">
-            Rp.{(detail.price * quantity).toLocaleString("id-ID")}
-          </h1>
         </div>
-      </section>
-    </>
+      </div>
+
+      <div className="flex items-center justify-between border-t-2 border-[#A9A69F]">
+        <div className="flex items-center justify-between w-1/4 gap-4">
+          <button
+            type="button"
+            aria-label="Decrease quantity"
+            onClick={handleMinusQuantity}
+          >
+            <Minus size={16} />
+          </button>
+          <span className="font-semibold text-[1rem]">{quantity}</span>
+          <button
+            type="button"
+            aria-label="Increase quantity"
+            onClick={handlePlusQuantity}
+          >
+            <Plus size={16} />
+          </button>
+        </div>
+        <h1 className="font-medium text-[1rem]">
+          Rp.{(detail.price * quantity).toLocaleString("id-ID")}
+        </h1>
+      </div>
+    </section>
   );
 };
 

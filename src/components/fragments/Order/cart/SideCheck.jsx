@@ -126,11 +126,14 @@ function SideCheck() {
   return (
     <div className="relative w-full sm:w-2/5 bg-transparent  sm:bg-zinc-950 p-4 rounded-[1.5rem]">
       {/* Komponen harga dan Chevron untuk mobile di bagian bawah */}
-      <div className="sm:hidden fixed bottom-0  left-0 right-0 bg-zinc-950 flex justify-between items-center p-4 z-50">
+      <div
+        onClick={handleOpen}
+        className="sm:hidden fixed bottom-0  left-0 right-0 bg-zinc-950 flex justify-between items-center p-4 z-50"
+      >
         <h1 className="font-semibold text-[1.2rem]">
           Rp {new Intl.NumberFormat("id-ID").format(totalPrice)}
         </h1>
-        <ChevronUp onClick={handleOpen} className="cursor-pointer" />
+        <ChevronUp className="cursor-pointer" />
       </div>
 
       {/* Komponen summary untuk desktop */}
