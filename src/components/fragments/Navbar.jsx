@@ -1,9 +1,8 @@
 import ButtonNav from "../elements/button/ButtonNav";
 import { UserRound, Search } from "lucide-react";
 import { NavLink } from "react-router-dom";
-import ButtonNavModal from "../elements/button/ButtonBack";
 
-const Navbar = ({ onOpenSearch, onOpenOrder }) => {
+const Navbar = () => {
   return (
     <nav className="fixed top-0 left-0 right-0 z-40 w-full py-2 bg-[#111111]  ">
       <div className="flex items-center justify-between px-4 lg:px-12">
@@ -18,18 +17,6 @@ const Navbar = ({ onOpenSearch, onOpenOrder }) => {
           <ButtonNav linkPage="/product" classname="active-class">
             Product
           </ButtonNav>
-          {/* 
-          <ButtonNav linkPage="/order" classname="active-class">
-            Order
-          </ButtonNav> */}
-          {/* 
-          <ButtonNavModal
-            onClick={onOpenSearch}
-            classname="sm:bg-transparent sm:hover:bg-transparent text-[0.75rem] "
-          >
-            <Search size={16} />
-          </ButtonNavModal>
-           */}
           <ButtonNav linkPage="" classname="active-class">
             <UserRound size={16} />
           </ButtonNav>

@@ -3,7 +3,7 @@ import CheckSize from "@/components/elements/filter/CheckSize";
 import { X } from "lucide-react";
 import React from "react";
 import { useDispatch } from "react-redux";
-import { openModal } from "@/stores/modalSlice";
+import { openModal } from "@/stores/ModalSlice";
 
 function Sidebar() {
   const dispatch = useDispatch();
