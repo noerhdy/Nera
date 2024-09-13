@@ -42,6 +42,11 @@ const cartSlice = createSlice({
       );
     },
 
+    // Kosongkan keranjang
+    clearCart(state) {
+      state.items = [];
+    },
+
     //filter
     setFilterCategory(state, action) {
       state.filterCategory = action.payload;
@@ -52,10 +57,19 @@ const cartSlice = createSlice({
     setSearchQuery(state, action) {
       state.searchQuery = action.payload;
     },
+
+    // Reset Search and Filter
+    resetFilters(state) {
+      state.filterCategory = "allProduct";
+      state.selectedSizes = [];
+      state.searchQuery = "";
+    },
   },
 });
 export const {
   addtoCart,
+  resetFilters,
+  clearCart,
   changeQuantity,
   removeFromCart,
   setSelectedSizes,

@@ -1,24 +1,23 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Button } from "@/components/ui/button";
 import { dataSize } from "@/constants/Index";
 import { Minus, Plus } from "lucide-react";
 import { dataItem } from "@/constants/Index";
 import { addtoCart } from "@/stores/Cart";
-import { useSelector } from "react-redux";
-import { useModalContext } from "@/features/modals/ModalContext";
+import { openModal } from "@/stores/ModalSlice";
 
 const ProductOverview = () => {
   const { slug } = useParams();
   const carts = useSelector((store) => store.cart.items);
+  const dispatch = useDispatch();
+
   const [detail, setDetail] = useState({});
   const [quantity, setQuantity] = useState(1);
   const [activeImage, setActiveImage] = useState("");
   const [activeTab, setActiveTab] = useState("materials");
   const [selectedSize, setSelectedSize] = useState("");
-  const dispatch = useDispatch();
-  const { handleOpenModal } = useModalContext();
 
   // Fetch product details based on slug
   useEffect(() => {
@@ -73,7 +72,7 @@ const ProductOverview = () => {
         size: selectedSize || null, // Kirim selectedSize hanya jika ada
       })
     );
-    handleOpenModal("order");
+    dispatch(openModal("order"));
   };
 
   return (
@@ -98,7 +97,6 @@ const ProductOverview = () => {
                       activeImage === img ? " brightness-100" : ""
                     }`}
                     onClick={() => setActiveImage(img)}
-                    // Kamu bisa tambahkan logika onClick di sini jika ingin gambar besar berubah
                   />
                 ))}
               </div>
@@ -172,7 +170,7 @@ const ProductOverview = () => {
                 type="button"
                 aria-label="Decrease quantity"
                 onClick={handleMinusQuantity}
-                // disabled={quantity === 1}
+                disabled={quantity === 1}
               >
                 <Minus size={12} />
               </button>

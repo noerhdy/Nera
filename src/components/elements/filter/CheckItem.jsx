@@ -1,7 +1,7 @@
 import { Search } from "lucide-react";
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { setSearchQuery, setFilterCategory } from "@/stores/Cart";
+import { setSearchQuery } from "@/stores/Cart";
 
 const CheckItem = ({ onOpenSearch }) => {
   const dispatch = useDispatch();
