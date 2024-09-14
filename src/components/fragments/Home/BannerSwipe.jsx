@@ -9,7 +9,6 @@ import imageProductBanner1 from "@/assets/img/banner/1.jpg";
 import imageProductBanner2 from "@/assets/img/banner/2.jpg";
 import imageProductBanner3 from "@/assets/img/banner/3.jpg";
 import imageProductBanner4 from "@/assets/img/banner/4.jpg";
-import imageProductBanner5 from "@/assets/img/banner/5.jpg";
 
 // Gabungkan gambar dalam array
 const images = [
@@ -17,18 +16,17 @@ const images = [
   { src: imageProductBanner2, alt: "Slide 2" },
   { src: imageProductBanner3, alt: "Slide 3" },
   { src: imageProductBanner4, alt: "Slide 4" },
-  { src: imageProductBanner5, alt: "Slide 5" },
 ];
 
 const BannerSwipe = () => {
   return (
-    <div className="relative w-full h-full mb-2 overflow-hidden">
+    <div className="relative w-full sm:h-full h-dvh mb-2 overflow-hidden">
       <div className="relative flex flex-col items-center justify-center h-full overflow-hidden">
         <Swiper
           modules={[Scrollbar, A11y, Autoplay]}
           slidesPerView={1}
           loop={true}
-          autoplay={{ delay: 3000, disableOnInteraction: false }}
+          autoplay={{ delay: 4000, disableOnInteraction: false }}
           pagination={{ clickable: true }}
           scrollbar={{ draggable: true }}
           className="box-border relative overflow-hidden size-full"

@@ -8,23 +8,34 @@ const OrderItem = (props) => {
   const { productId, quantity: initialQuantity, size } = props.data;
   const [detail, setDetail] = useState({});
   const [quantity, setQuantity] = useState(initialQuantity);
+  const [availableStock, setAvailableStock] = useState(0); // State for available stock
   const dispatch = useDispatch();
 
   useEffect(() => {
     const productDetail = dataItem.find((product) => product.id === productId);
     setDetail(productDetail || {});
-  }, [productId]);
+
+    // Set the available stock based on the selected size
+    if (productDetail && productDetail.sizes && productDetail.sizes[size]) {
+      setAvailableStock(productDetail.sizes[size].stock); // Get stock for the selected size
+    }
+  }, [productId, size]);
 
   const handleMinusQuantity = () => {
     const newQuantity = Math.max(quantity - 1, 1);
     setQuantity(newQuantity);
-    dispatch(changeQuantity({ productId, quantity: newQuantity }));
+    dispatch(changeQuantity({ productId, quantity: newQuantity, size }));
   };
 
   const handlePlusQuantity = () => {
-    const newQuantity = quantity + 1;
-    setQuantity(newQuantity);
-    dispatch(changeQuantity({ productId, quantity: newQuantity }));
+    if (quantity + 1 <= availableStock) {
+      // Only increase if stock is available
+      const newQuantity = quantity + 1;
+      setQuantity(newQuantity);
+      dispatch(changeQuantity({ productId, quantity: newQuantity, size }));
+    } else {
+      alert(`Maximum stock for ${size} is ${availableStock}`);
+    }
   };
 
   const handleRemove = () => {
@@ -94,6 +105,12 @@ const OrderItem = (props) => {
             type="button"
             aria-label="Increase quantity"
             onClick={handlePlusQuantity}
+            disabled={quantity >= availableStock} // Disable if at max stock
+            className={`${
+              quantity >= availableStock
+                ? "text-zinc-600  cursor-not-allowed"
+                : ""
+            }`}
           >
             <Plus size={16} />
           </button>

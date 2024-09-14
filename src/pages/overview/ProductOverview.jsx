@@ -18,6 +18,7 @@ const ProductOverview = () => {
   const [activeImage, setActiveImage] = useState("");
   const [activeTab, setActiveTab] = useState("materials");
   const [selectedSize, setSelectedSize] = useState("");
+  const [availableStock, setAvailableStock] = useState(0);
 
   // Fetch product details based on slug
   useEffect(() => {
@@ -49,6 +50,7 @@ const ProductOverview = () => {
   const handleSizeChange = (size) => {
     if (detail.sizes[size].stock > 0) {
       setSelectedSize(size);
+      setAvailableStock(detail.sizes[size].stock);
       setQuantity(1); // Reset quantity ketika ukuran baru dipilih
     }
   };
@@ -94,7 +96,7 @@ const ProductOverview = () => {
                     src={img}
                     alt={`Detail image ${index + 1}`}
                     className={`object-cover cursor-pointer size-24 lg:size-28 brightness-50 ${
-                      activeImage === img ? " brightness-100" : ""
+                      activeImage === img ? " brightness-125" : ""
                     }`}
                     onClick={() => setActiveImage(img)}
                   />
@@ -162,6 +164,13 @@ const ProductOverview = () => {
               </button>
             )}
           </div>
+
+          {/* Display stock information */}
+          {selectedSize && (
+            <p className="text-[#A9A69F] text-[0.75rem]">
+              {availableStock} in stock
+            </p>
+          )}
 
           {/* Quantity Selector and Add to Cart */}
           <div className="flex items-center justify-between w-3/4 gap-4 sm:w-2/5">
@@ -257,7 +266,7 @@ const ProductOverview = () => {
               {activeTab === "materials" && (
                 <div
                   className=" aspect-video gap-2 flex-col p-4 flex items-start justify-center
-          [&_p]:text-[0.75rem] " // Consistent height
+            [&_p]:text-[0.75rem] " // Consistent height
                   id="materials"
                   role="tabpanel"
                   aria-labelledby="materials-tab"
