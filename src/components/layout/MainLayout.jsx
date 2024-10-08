@@ -8,12 +8,9 @@ export default function MainLayout() {
   return (
     <main className="relative size-full bg-[#111]">
       <Navbar />
-
       <ModalComponent />
-
       {/* Outlet dengan dispatch untuk membuka modals */}
       <Outlet />
-
       <Footer />
     </main>
   );

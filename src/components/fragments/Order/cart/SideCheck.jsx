@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { dataItem } from "@/constants/Index";
+import { toast, Toaster } from "sonner";
 
 function SideCheck() {
   const [isMobile, setIsMobile] = useState(false);
@@ -22,12 +23,11 @@ function SideCheck() {
 
   const totalQuantity = carts.reduce((acc, item) => acc + item.quantity, 0);
 
+  // Mengecek ukuran layar apakah mobile
   useEffect(() => {
-    // Mengecek ukuran layar apakah mobile
     const handleResize = () => {
       setIsMobile(window.innerWidth < 640);
     };
-
     handleResize(); // Cek saat pertama kali komponen dirender
     window.addEventListener("resize", handleResize);
 
@@ -37,13 +37,40 @@ function SideCheck() {
   const handleOpen = () => setIsVisible(true);
   const handleClose = () => setIsVisible(false);
 
+  // State untuk toast dan jumlah klik
+  const [clickCount, setClickCount] = useState(0);
+  const [showEmptyCartToast, setShowEmptyCartToast] = useState(true);
+
+  const handleClick = () => {
+    if (carts.length === 0) {
+      if (showEmptyCartToast) {
+        toast.error("Your cart is currently empty.");
+        setShowEmptyCartToast(false);
+      }
+    } else {
+      if (clickCount === 0) {
+        toast.success("This is a Prototype Version.");
+      } else if (clickCount === 1) {
+        toast.success("Thank You for Stopping By!");
+      }
+      setClickCount((prevCount) => prevCount + 1);
+      setShowEmptyCartToast(true);
+    }
+  };
+
+  useEffect(() => {
+    if (carts.length > 0) {
+      setShowEmptyCartToast(true);
+    }
+  }, [carts]);
+
   // Render untuk desktop
   const renderDesktopSummary = () => (
     <>
       <div className="py-2 border-b-2 border-[#A9A69F] ">
         <h1 className="font-semibold text-[1rem] ">Checkout Summary</h1>
       </div>
-      <div className="flex  items-center justify-between">
+      <div className="flex items-center justify-between">
         <h1 className="font-medium text-[1rem]">Original Product Price</h1>
         <h1 className="font-semibold text-[1.2rem]">
           Rp {new Intl.NumberFormat("id-ID").format(totalPrice)}
@@ -63,9 +90,10 @@ function SideCheck() {
         <h1>-Rp.200.000</h1>
       </div> */}
       <div className="py-4 sm:py-8">
-        <Link to="/checkout">
-          <Button className="rounded-xl text-[1rem] w-full">Check Out</Button>
-        </Link>
+        <Toaster theme="dark" position="top-center" />
+        <Button onClick={handleClick} className="rounded-xl text-[1rem] w-full">
+          Check Out
+        </Button>
       </div>
     </>
   );
@@ -93,7 +121,7 @@ function SideCheck() {
             <div className="py-2 border-b-2 border-zinc-600 ">
               <h1 className="font-semibold text-[1rem]">Checkout Summary</h1>
             </div>
-            <div className="flex items-center pt-2 justify-between w-full">
+            <div className="flex items-center justify-between w-full pt-2">
               <h1 className="font-medium text-[0.75rem]">
                 Original Product Price
               </h1>
@@ -111,11 +139,13 @@ function SideCheck() {
               </h1>
             </div>
             <div className="py-4">
-              <Link to="/checkout">
-                <Button className="w-full rounded-xl text-[1rem]">
-                  Check Out
-                </Button>
-              </Link>
+              <Toaster theme="dark" position="top-center" />
+              <Button
+                onClick={handleClick}
+                className="rounded-xl text-[1rem] w-full"
+              >
+                Check Out
+              </Button>
             </div>
           </motion.div>
         </>
@@ -128,7 +158,7 @@ function SideCheck() {
       {/* Komponen harga dan Chevron untuk mobile di bagian bawah */}
       <div
         onClick={handleOpen}
-        className="sm:hidden fixed bottom-0  left-0 right-0 bg-zinc-950 flex justify-between items-center p-4 z-50"
+        className="fixed bottom-0 left-0 right-0 z-50 flex items-center justify-between p-4 sm:hidden bg-zinc-950"
       >
         <h1 className="font-semibold text-[1.2rem]">
           Rp {new Intl.NumberFormat("id-ID").format(totalPrice)}
